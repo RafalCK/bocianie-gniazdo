@@ -70,7 +70,7 @@
 				height: 41%;
 				left: -31%;
 				bottom: 0%;
-				background: url("images/decoration.png");
+				background: url("~/public/images/decoration.png");
 				background-size: cover;
 				transform: rotate(60deg);
 			}
@@ -104,7 +104,7 @@
 				right: -39%;
 				top: -10%;
 				z-index: -2;
-				background: url("images/decoration_2.png");
+				background: url("~/public/images/decoration_2.png");
 				background-size: cover;
 				transform: rotate(240deg);
 			}

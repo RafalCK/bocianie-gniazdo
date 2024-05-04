@@ -2,7 +2,7 @@ import AnimateOnScroll from "primevue/animateonscroll";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	ssr: false,
+	ssr: true,
 	devtools: { enabled: true },
 	vite: {
 		css: {
@@ -18,8 +18,8 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	css: ["primevue/resources/themes/lara-light-teal/theme.css", "primevue/resources/primevue.css", "primeicons/primeicons.css", "~/assets/scss/main.scss"],
 	modules: ["@nuxtjs/strapi", "@nuxt/image", "nuxt-primevue"],
+	css: ["primevue/resources/themes/lara-light-teal/theme.css", "primevue/resources/primevue.css", "primeicons/primeicons.css", "~/assets/scss/main.scss"],
 	primevue: {
 		components: {
 			include: ["Button", "Menubar", "InputText", "Carousel", "Avatar", "Textarea", "FloatLabel", "Galleria"],

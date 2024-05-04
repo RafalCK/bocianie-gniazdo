@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 		},
 	},
 	modules: ["@nuxtjs/strapi", "@nuxt/image", "nuxt-primevue"],
-	css: ["primevue/resources/themes/lara-light-teal/theme.css", "primevue/resources/primevue.css", "primeicons/primeicons.css", "~/assets/scss/main.scss"],
+	css: ["primevue/resources/themes/lara-light-teal/theme.css", "primeicons/primeicons.css", "~/assets/scss/primevue.scss", "~/assets/scss/main.scss"],
 	primevue: {
 		components: {
 			include: ["Button", "Menubar", "InputText", "Carousel", "Avatar", "Textarea", "FloatLabel", "Galleria"],

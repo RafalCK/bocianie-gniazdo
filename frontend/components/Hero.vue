@@ -130,7 +130,7 @@ const slides = [
 
 	.hero {
 		&__header {
-			margin-top: rem(60);
+			margin-top: rem(100);
 			font-size: rem(38);
 		}
 		&__description {

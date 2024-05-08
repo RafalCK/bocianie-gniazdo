@@ -193,6 +193,7 @@ const message = ref("");
 	.contact {
 		&__container {
 			flex-direction: column;
+			margin: rem(32);
 		}
 		&__left {
 			flex: 1;

@@ -176,6 +176,9 @@
 
 @media (max-width: 700px) {
 	.header {
+		&__logo {
+			margin-left: rem(10);
+		}
 		&__info {
 			&__item {
 				&__email {

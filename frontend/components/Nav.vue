@@ -13,7 +13,7 @@
 			<div class="nav__reservation">
 				<NuxtLink
 					class="nav__reservation__link"
-					to="/"
+					to="/rezerwacje"
 					><span class="pi pi-calendar-plus nav__reservation__link__icon"></span>Zarezerwuj</NuxtLink
 				>
 			</div>

@@ -18,7 +18,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="about-us__container shadow-2">
+			<!-- <div class="about-us__container shadow-2">
 				<div class="about-us__row">
 					<div class="about-us__text">
 						<p class="about-us__text__description">Dzień dobry z Kotliny Rabczańskiej! Ulokowaliśmy się na szczycie góry pomiędzy Gorcami i Beskidem Wyspowym, z której mamy genialny widok na wchodzące i zachodzące za pasmem szczytów słońce. Zazwyczaj poranną kawę pijemy z termosu na szlaku na Maciejową, przegryzamy ją racuchami ze schroniska i potem zbiegamy na obiad w Rabce. Wieczorami rozpalamy palenisko pod balią z gorącą wodą i ognisko, przy którym pieczemy kiełbasy, gotujemy grzybową i zakopujemy w żarze ziemniaki.</p>
@@ -39,7 +39,7 @@
 						<p class="about-us__text__description">Jeżeli tęsknicie za wiatrem pachnącym sosnowym lasem, śniegiem po pas, spacerami wśród łąk, hal i pól – nie czekajcie na nic i przyjedźcie do uzdrowiskowej Rabki-Zdroju. Teraz nie trzeba cierpieć na jakiekolwiek schorzenie, aby raczyć się leczniczymi wodami mineralnymi i dostojnie spacerować Parkiem Zdrojowym. Równie dobrze można wziąć udział w mistrzostwach w dmuchaniu największego balona z gumy do żucia oraz w jeździe na muszlach klozetowych. Dni możecie spędzać aktywnie, odliczać je wschodami słońca, biegać po górskich szlakach, jeździć na nartach lub (co zalecamy) odpoczywać totalnie: wysypiać się za wszystkie czasy i nadrabiać zaległości w rodzinnym śniadaniowaniu do południa. To jak, skusicie się na nocleg w cieniu Maciejowej, Lubonia Wielkiego i Turbacza?</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
@@ -107,7 +107,7 @@ definePageMeta({
 			display: flex;
 			align-items: center;
 			height: 100%;
-			padding: 0 rem(50) rem(50) rem(50);
+			padding: rem(50);
 
 			&__avatar {
 				margin-right: rem(40);

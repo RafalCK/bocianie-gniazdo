@@ -24,6 +24,25 @@
 			<div class="attractions__item">
 				<a
 					class="attractions__item__link"
+					href="https://www.facebook.com/parkzdrojowy"
+					target="_blank" />
+				<div class="attractions__item__image">
+					<div class="attractions__item__image__image">
+						<NuxtImg
+							src="images/park_zdrojowy.jpg"
+							height="455" />
+					</div>
+					<div class="attractions__item__button">
+						<span class="attractions__item__button__label">Zobacz</span>
+					</div>
+				</div>
+				<div class="attractions__item__content">
+					<span class="attractions__item__name">Park Zdrojowy</span>
+				</div>
+			</div>
+			<div class="attractions__item">
+				<a
+					class="attractions__item__link"
 					href="https://stare-wierchy.pttk.pl"
 					target="_blank" />
 				<div class="attractions__item__image">
@@ -38,6 +57,25 @@
 				</div>
 				<div class="attractions__item__content">
 					<span class="attractions__item__name">Stare Wierchy</span>
+				</div>
+			</div>
+			<div class="attractions__item">
+				<a
+					class="attractions__item__link"
+					href="https://rabkoland.pl"
+					target="_blank" />
+				<div class="attractions__item__image">
+					<div class="attractions__item__image__image">
+						<NuxtImg
+							src="images/rabkoland.jpg"
+							height="455" />
+					</div>
+					<div class="attractions__item__button">
+						<span class="attractions__item__button__label">Zobacz</span>
+					</div>
+				</div>
+				<div class="attractions__item__content">
+					<span class="attractions__item__name">Rabkoland</span>
 				</div>
 			</div>
 			<div class="attractions__item">
@@ -109,7 +147,7 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		width: 33%;
+		width: 20%;
 		&__image {
 			display: flex;
 			position: relative;

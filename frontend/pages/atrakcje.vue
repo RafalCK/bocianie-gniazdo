@@ -20,11 +20,31 @@
 					<div class="attractions__image">
 						<NuxtImg
 							class="attractions__image__image"
-							src="images/stare_wierchy.jpg" />
+							src="images/park_zdrojowy.jpg" />
 					</div>
+					<div class="attractions__text">
+						<span class="attractions__text__header">Park Zdrojowy</span>
+					</div>
+				</div>
+				<div class="attractions__row">
 					<div class="attractions__text">
 						<span class="attractions__text__header">Stare Wierchy</span>
 						<p class="attractions__text__description">Stare Wierchy, wznoszące się na wysokość 971 metrów nad poziomem morza, to majestatyczny szczyt w sercu Gorców. Jego imponujące panorama oferuje zachwycające widoki na okoliczne góry, doliny i malownicze tereny. To idealne miejsce dla pasjonatów wędrówek górskich, którzy pragną odkryć piękno i spokój tej niezwykłej krainy. Bez względu na porę roku, Stare Wierchy zachęcają do odkrywania swoich tajemnic i doświadczania niezapomnianych przygód wśród natury.</p>
+					</div>
+					<div class="attractions__image">
+						<NuxtImg
+							class="attractions__image__image"
+							src="images/stare_wierchy.jpg" />
+					</div>
+				</div>
+				<div class="attractions__row">
+					<div class="attractions__image">
+						<NuxtImg
+							class="attractions__image__image"
+							src="images/rabkoland.jpg" />
+					</div>
+					<div class="attractions__text">
+						<span class="attractions__text__header">Rabkoland</span>
 					</div>
 				</div>
 				<div class="attractions__row">

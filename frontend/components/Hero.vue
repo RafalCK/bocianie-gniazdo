@@ -104,10 +104,13 @@ const slides = [
 	}
 	&__header {
 		font-size: rem(60);
+		font-family: $font-family-raleway;
 		color: $color-white;
 	}
 	&__description {
 		font-size: rem(25);
+		font-family: $font-family-raleway;
+		line-height: 26px;
 		color: $color-white;
 	}
 	&__button {
@@ -121,9 +124,17 @@ const slides = [
 }
 
 @media (max-width: 660px) {
+	:deep(.p-carousel) {
+		height: calc(100vh - rem(300));
+	}
+
 	.hero {
 		&__header {
-			font-size: rem(50);
+			margin-top: rem(60);
+			font-size: rem(38);
+		}
+		&__description {
+			font-size: rem(21);
 		}
 	}
 }

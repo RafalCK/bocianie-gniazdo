@@ -125,8 +125,9 @@ watch(
 			}
 
 			.nav__link {
+				display: flex;
 				font-size: rem(22);
-				width: 100%;
+				width: 85%;
 				line-height: 36px;
 
 				&::after {

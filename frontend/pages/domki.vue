@@ -157,12 +157,6 @@
 					</div>
 					<div class="houses__info__item">
 						<NuxtImg
-							src="icons/sygnal.svg"
-							height="20" />
-						<span class="houses__info__item__name">dobry zasięg telefonu</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
 							src="icons/basen.svg"
 							height="20" />
 						<span class="houses__info__item__name">basen</span>

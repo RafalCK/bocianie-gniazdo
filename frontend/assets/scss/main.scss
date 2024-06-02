@@ -25,6 +25,10 @@ a {
 	margin-left: auto;
 }
 
+.cookieControl__ControlButton {
+	left: 20px !important;
+}
+
 @media (max-width: 340px) {
 	.wrapper {
 		padding-right: 2%;

@@ -248,6 +248,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+	layout: "page-layout",
+});
+
 const images = [
 	{
 		itemImageSrc: "images/houses/1.jpg",

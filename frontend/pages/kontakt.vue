@@ -78,6 +78,10 @@
 <script setup lang="ts">
 import Map from "~/components/homepage/Map.vue";
 
+definePageMeta({
+	layout: "page-layout",
+});
+
 const name = ref("");
 const phone = ref("");
 const email = ref("");

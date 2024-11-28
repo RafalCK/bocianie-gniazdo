@@ -8,38 +8,16 @@
 				<div class="about-us__hosts__item">
 					<div class="about-us__hosts__item__avatar">
 						<Avatar
-							image="images/ela_adrian.png"
+							:image="`images/${about.image.data.attributes.name}`"
 							size="xlarge"
 							shape="circle" />
 						<span class="about-us__hosts__item__name">Ela i Adrian</span>
 					</div>
 					<div class="about-us__hosts__item__opinion">
-						<p>Cześć! Tu Ela i Adrian Bocianowscy. Jak się już domyślacie nazwa miejsca powstała od nazwiska – wymyślił ją mój mąż w przypływie imprezowego natchnienia - i tak już zostało. A jak znaleźliśmy się na szczycie góry? Przyjeżdżaliśmy tu na grzyby, a na polance, na której teraz stoją domy popijaliśmy kawę z termosu i marzyliśmy o takim widoku na co dzień. I wymarzyliśmy! Wybudowaliśmy duży dom i towarzyszące mu domki, do których Was zapraszamy. Potem wykopaliśmy basen i postawiliśmy balię z gorącą wodą. I ciągle nam mało, coś chcemy udoskonalać, dobudowywać i dopieszczać. Po całodziennej walce w przychodniach stomatologicznych zaszywamy się przy ognisku, zbieramy grzyby, gapimy w gwiazdy lub wspinamy na pobliskie szczyty. W ten sposób wietrzymy głowę, pozbywamy się złych myśli i uśmiechamy z większym spokoje. Wam także polecamy górski wypoczynek i wierzymy, że każdy znajdzie tu coś dla siebie.</p>
+						<p>{{ about.text }}</p>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="about-us__container shadow-2">
-				<div class="about-us__row">
-					<div class="about-us__text">
-						<p class="about-us__text__description">Dzień dobry z Kotliny Rabczańskiej! Ulokowaliśmy się na szczycie góry pomiędzy Gorcami i Beskidem Wyspowym, z której mamy genialny widok na wchodzące i zachodzące za pasmem szczytów słońce. Zazwyczaj poranną kawę pijemy z termosu na szlaku na Maciejową, przegryzamy ją racuchami ze schroniska i potem zbiegamy na obiad w Rabce. Wieczorami rozpalamy palenisko pod balią z gorącą wodą i ognisko, przy którym pieczemy kiełbasy, gotujemy grzybową i zakopujemy w żarze ziemniaki.</p>
-					</div>
-					<div class="about-us__image">
-						<NuxtImg
-							class="about-us__image__image"
-							src="images/hero_4.jpg" />
-					</div>
-				</div>
-				<div class="about-us__row">
-					<div class="about-us__image">
-						<NuxtImg
-							class="about-us__image__image"
-							src="images/about_us_2.jpg" />
-					</div>
-					<div class="about-us__text">
-						<p class="about-us__text__description">Jeżeli tęsknicie za wiatrem pachnącym sosnowym lasem, śniegiem po pas, spacerami wśród łąk, hal i pól – nie czekajcie na nic i przyjedźcie do uzdrowiskowej Rabki-Zdroju. Teraz nie trzeba cierpieć na jakiekolwiek schorzenie, aby raczyć się leczniczymi wodami mineralnymi i dostojnie spacerować Parkiem Zdrojowym. Równie dobrze można wziąć udział w mistrzostwach w dmuchaniu największego balona z gumy do żucia oraz w jeździe na muszlach klozetowych. Dni możecie spędzać aktywnie, odliczać je wschodami słońca, biegać po górskich szlakach, jeździć na nartach lub (co zalecamy) odpoczywać totalnie: wysypiać się za wszystkie czasy i nadrabiać zaległości w rodzinnym śniadaniowaniu do południa. To jak, skusicie się na nocleg w cieniu Maciejowej, Lubonia Wielkiego i Turbacza?</p>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 </template>
@@ -48,6 +26,19 @@
 definePageMeta({
 	layout: "page-layout",
 });
+
+const { find } = useStrapi();
+
+const { data } = await useAsyncData("about-us", async () => {
+	try {
+		const response = await find("about-us", { populate: "deep" });
+		return response;
+	} catch (err) {
+		return null;
+	}
+});
+
+const about = data.value?.data.attributes;
 </script>
 
 <style lang="scss" scoped>

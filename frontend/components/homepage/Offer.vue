@@ -3,40 +3,22 @@
 		<span class="offer__header">Oferta</span>
 		<div class="offer__container">
 			<NuxtLink
-				to="oferta"
+				v-for="offer in offers"
+				:key="offer.name"
+				:to="offer.link"
 				class="offer__image">
 				<NuxtImg
 					class="offer__image__image"
-					src="images/bocianie_gniazdo_led.jpg" />
+					:src="`images/${offer.image.data.attributes.name}`" />
 				<span class="offer__image__name">Bocianie gniazdo</span>
-			</NuxtLink>
-			<!-- <div class="offer__image">
-				<NuxtImg
-					class="offer__image__image"
-					src="images/apartments.jpg" />
-				<span class="offer__image__name">Apartamenty</span>
-			</div> -->
-			<NuxtLink
-				to="oferta"
-				class="offer__image">
-				<NuxtImg
-					class="offer__image__image"
-					src="images/homes.jpg" />
-				<span class="offer__image__name">Domki</span>
-			</NuxtLink>
-			<NuxtLink
-				to="oferta"
-				class="offer__image">
-				<NuxtImg
-					class="offer__image__image"
-					src="images/imprezy.jpg" />
-				<span class="offer__image__name">Imprezy okolicznościowe</span>
 			</NuxtLink>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const offers = inject("offers");
+</script>
 
 <style lang="scss" scoped>
 .offer {

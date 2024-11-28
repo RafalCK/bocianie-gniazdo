@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_house_infos",
+  "info": {
+    "displayName": "HouseInfo",
+    "icon": "house",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.address"
+    }
+  }
+}

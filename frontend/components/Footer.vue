@@ -3,30 +3,27 @@
 		<div class="footer__top">
 			<div class="footer__column">
 				<span class="footer__header">Kontakt</span>
-				<div class="footer__contact">
+				<div
+					class="footer__contact"
+					v-for="contact in contacts"
+					:key="contact.value">
 					<a
-						href="https://maps.app.goo.gl/WBFB46Thjfnenf8DA"
+						:href="contact.link"
 						traget="_blank"
-						><i class="pi pi-map-marker mr-2"></i><span>Olszówka 34-700, Rabka Zdrój</span></a
+						><i
+							:class="contact.icon"
+							class="mr-2"></i
+						><span>{{ contact.value }}</span></a
 					>
-				</div>
-				<div class="footer__contact">
-					<a href="tel:+48882806201"><i class="pi pi-phone mr-2"></i><span>+48 789 409 254</span></a>
-				</div>
-				<div class="footer__contact">
-					<a href="mailto:e.bockowska@wp.pl"><i class="pi pi-envelope mr-2"></i><span>bocianiegniazdo@gmail.com</span></a>
 				</div>
 				<div class="footer__bottom__links mt-3">
 					<NuxtLink
+						v-for="link in links"
+						:key="link.label"
 						class="footer__bottom__links__link"
-						to="polityka-prywatnosci"
-						>Polityka prywatnośći</NuxtLink
-					>
-					<NuxtLink
-						class="footer__bottom__links__link"
-						to="files/regulamin.pdf"
-						target="_blank"
-						>Regulamin</NuxtLink
+						:to="link.url"
+						:target="link.blank ? '_blank' : null">
+						{{ link.label }}</NuxtLink
 					>
 				</div>
 			</div>
@@ -40,43 +37,27 @@
 				</div>
 				<div class="footer__social-media">
 					<a
-						href="https://www.facebook.com/bocianiegniazdorabka"
-						target="_blank"
+						v-for="social in socials"
+						:key="social.name"
+						:href="social.link"
+						:target="social.blank ? '_blank' : null"
 						class="footer__item">
-						<div class="footer__item__icon"><span class="pi pi-facebook"></span></div>
-					</a>
-					<a
-						target="_blank"
-						href="https://www.instagram.com/bocianiegniazdowrabce"
-						class="footer__item">
-						<div class="footer__item__icon"><span class="pi pi-instagram"></span></div>
-					</a>
-					<a
-						target="_blank"
-						href="https://www.tiktok.com/@bocianie.gniazdo.rabka"
-						class="footer__item">
-						<div class="footer__item__icon"><span class="pi pi-tiktok"></span></div>
+						<div class="footer__item__icon"><span :class="social.icon"></span></div>
 					</a>
 				</div>
 			</div>
 			<div class="footer__column">
 				<span class="footer__header">Rezerwacje</span>
 				<a
+					v-for="partner in partners"
+					:key="partner.name"
+					:href="partner.link"
 					target="_blank"
-					class="mt-3 mb-2"
-					href="https://www.booking.com/hotel/pl/bocianie-gniazdo-w-rabce.pl.html"
-					><NuxtImg
-						src="images/slowhop.svg"
-						height="23"
-				/></a>
-				<a
-					target="_blank"
-					class="mt-3 mb-2"
-					href="https://slowhop.com/pl/miejsca/2133-bocianie-gniazdo-w-rabce.html"
-					><NuxtImg
-						src="images/booking.svg"
-						height="20"
-				/></a>
+					class="mt-3 mb-2">
+					<NuxtImg
+						:src="`images/${partner.logo.data.attributes.name}`"
+						height="23" />
+				</a>
 			</div>
 		</div>
 	</footer>
@@ -85,7 +66,12 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const contacts = inject("contacts");
+const socials = inject("socials");
+const links = inject("links");
+const partners = inject("partners");
+</script>
 
 <style lang="scss" scoped>
 .footer {

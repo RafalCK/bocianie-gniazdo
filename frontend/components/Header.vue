@@ -2,41 +2,24 @@
 	<header class="header">
 		<div class="header__top">
 			<div class="header__info">
-				<a
-					href="tel:+48882806201"
-					class="header__info__item header__info__item__phone">
-					<div class="header__info__item__icon"><span class="pi pi-phone"></span></div>
-					<span>+48 882 806 201</span>
-				</a>
-				<a
-					href="https://maps.app.goo.gl/WBFB46Thjfnenf8DA"
-					traget="_blank"
-					class="header__info__item header__info__item__address">
-					<div class="header__info__item__icon"><span class="pi pi-map-marker"></span></div>
-					<span>Olszówka 34-700</span>
-				</a>
-				<a
-					href="mailto:e.bockowska@wp.pl"
-					class="header__info__item header__info__item__email">
-					<div class="header__info__item__icon"><span class="pi pi-envelope"></span></div>
-					<span>e.bockowska@wp.pl</span>
-				</a>
+				<NuxtLink
+					v-for="contact in contacts"
+					:key="contact.value"
+					:to="contact.url"
+					:target="contact.blank ? '_blank' : null"
+					class="header__info__item">
+					<div class="header__info__item__icon"><span :class="contact.iconame"></span></div>
+					<span>{{ contact.value }}</span>
+				</NuxtLink>
 			</div>
 			<div class="header__social-media">
 				<a
-					href="https://www.facebook.com/bocianiegniazdorabka"
+					v-for="social in socials"
+					:key="social.name"
+					:href="social.link"
+					:target="social.blank ? '_blank' : null"
 					class="header__info__item">
-					<div class="header__info__item__icon"><span class="pi pi-facebook"></span></div>
-				</a>
-				<a
-					href="https://www.instagram.com/bocianiegniazdowrabce"
-					class="header__info__item">
-					<div class="header__info__item__icon"><span class="pi pi-instagram"></span></div>
-				</a>
-				<a
-					href="https://www.tiktok.com/@bocianie.gniazdo.rabka"
-					class="header__info__item">
-					<div class="header__info__item__icon"><span class="pi pi-tiktok"></span></div>
+					<div class="header__info__item__icon"><span :class="social.icon"></span></div>
 				</a>
 			</div>
 		</div>
@@ -61,7 +44,10 @@
 	</header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const contacts = inject("contacts");
+const socials = inject("socials");
+</script>
 
 <style lang="scss" scoped>
 .header {

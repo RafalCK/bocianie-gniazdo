@@ -5,59 +5,44 @@
 			header="Atrakcje"></PageHero>
 		<div class="wrapper">
 			<div class="attractions__container shadow-2">
-				<div class="attractions__row">
-					<div class="attractions__text">
-						<span class="attractions__text__header">Maciejowa</span>
-						<p class="attractions__text__description">Zachwycający szczyt Maciejowa to prawdziwa perełka w sercu Gorców. Jego malownicze widoki na górskie krajobrazy i okoliczne doliny sprawiają, że jest to idealne miejsce dla miłośników przyrody i aktywnego wypoczynku. Niezapomniana panorama, która rozciąga się z Maciejowej, wraz z licznymi trasami, przyciąga turystów przez cały rok. Nie przegap okazji, by odwiedzić ten wyjątkowy szczyt podczas pobytu w Rabce-Zdroju. Znajdujące się niedaleko Bocianie Gniazdo stanowi doskonałą bazę wypadową na wycieczkę, pozwalając Ci cieszyć się urokami Maciejowej bez względu na porę roku.</p>
+				<template
+					v-for="(item, index) in attraction"
+					:key="item.header">
+					<div
+						class="attractions__row"
+						v-if="index % 2 === 0">
+						<div class="attractions__text">
+							<span class="attractions__text__header">{{ item.header }}</span>
+							<p
+								v-if="item.content"
+								class="attractions__text__description">
+								{{ item.content }}
+							</p>
+						</div>
+						<div class="attractions__image">
+							<NuxtImg
+								class="attractions__image__image"
+								:src="`images/${item.image.data.attributes.name}`" />
+						</div>
 					</div>
-					<div class="attractions__image">
-						<NuxtImg
-							class="attractions__image__image"
-							src="images/maciejowa.webp" />
+					<div
+						v-else
+						class="attractions__row">
+						<div class="attractions__image">
+							<NuxtImg
+								class="attractions__image__image"
+								:src="`images/${item.image.data.attributes.name}`" />
+						</div>
+						<div class="attractions__text">
+							<span class="attractions__text__header">{{ item.header }}</span>
+							<p
+								v-if="item.content"
+								class="attractions__text__description">
+								{{ item.content }}
+							</p>
+						</div>
 					</div>
-				</div>
-				<div class="attractions__row">
-					<div class="attractions__image">
-						<NuxtImg
-							class="attractions__image__image"
-							src="images/park_zdrojowy.jpg" />
-					</div>
-					<div class="attractions__text">
-						<span class="attractions__text__header">Park Zdrojowy</span>
-					</div>
-				</div>
-				<div class="attractions__row">
-					<div class="attractions__text">
-						<span class="attractions__text__header">Stare Wierchy</span>
-						<p class="attractions__text__description">Stare Wierchy, wznoszące się na wysokość 971 metrów nad poziomem morza, to majestatyczny szczyt w sercu Gorców. Jego imponujące panorama oferuje zachwycające widoki na okoliczne góry, doliny i malownicze tereny. To idealne miejsce dla pasjonatów wędrówek górskich, którzy pragną odkryć piękno i spokój tej niezwykłej krainy. Bez względu na porę roku, Stare Wierchy zachęcają do odkrywania swoich tajemnic i doświadczania niezapomnianych przygód wśród natury.</p>
-					</div>
-					<div class="attractions__image">
-						<NuxtImg
-							class="attractions__image__image"
-							src="images/stare_wierchy.jpg" />
-					</div>
-				</div>
-				<div class="attractions__row">
-					<div class="attractions__image">
-						<NuxtImg
-							class="attractions__image__image"
-							src="images/rabkoland.jpg" />
-					</div>
-					<div class="attractions__text">
-						<span class="attractions__text__header">Rabkoland</span>
-					</div>
-				</div>
-				<div class="attractions__row">
-					<div class="attractions__text">
-						<span class="attractions__text__header">Turbacz</span>
-						<p class="attractions__text__description">Turbacz, najwyższy punkt w Gorcach, wznosi się w samym sercu tego pasma górskiego. Jako centralny punkt Gorców, Turbacz stanowi niezwykłą dominantę krajobrazu, oferując widoki, które zapierają dech w piersiach. Turbacz jest popularnym celem wędrówek górskich, przyciągając miłośników przyrody i poszukiwaczy przygód. Zbudowany z fliszu karpackiego szczyt kryje w sobie bogactwo przyrody oraz tajemnice dawnych czasów. Z jego wierzchołka roztacza się zapierająca widoki panorama, obejmująca rozległe tereny Gorców.</p>
-					</div>
-					<div class="attractions__image">
-						<NuxtImg
-							class="attractions__image__image"
-							src="images/turbacz.jpg" />
-					</div>
-				</div>
+				</template>
 			</div>
 		</div>
 	</div>
@@ -67,6 +52,19 @@
 definePageMeta({
 	layout: "page-layout",
 });
+
+const { find } = useStrapi();
+
+const { data } = await useAsyncData("attraction", async () => {
+	try {
+		const response = await find("attraction", { populate: "deep" });
+		return response;
+	} catch (err) {
+		return null;
+	}
+});
+
+const attraction = data.value?.data.attributes.attraction;
 </script>
 
 <style lang="scss" scoped>

@@ -5,12 +5,12 @@
 				class="houses__description animation-duration-1000 animation-ease-in-out"
 				v-animateonscroll="{ enterClass: 'fadeinleft' }">
 				<span class="houses__description__header">Domki</span>
-				<p>W naszej ofercie znajdziesz 6 w pełni wyposażonych, nowoczesnych i komfortowych domków, z których każdy posiada własne miejsce parkingowe. Podczas pobytu będziesz mógł korzystać z ogólnodostępnego jacuzzi, sauny oraz profesjonalnego grilla, aby maksymalnie cieszyć się relaksem i komfortem. Jeden z naszych domków, zwany Domkiem w Lesie, zapewnia wyjątkowe doświadczenie pobytu w otoczeniu natury. Zlokalizowany na uboczu, oferuje niepowtarzalny klimat lasu oraz harmonijną symbiozę z naturą. Dodatkowo, w jego pobliżu znajduje się bania, gdzie możesz zrelaksować się podczas gorącej kąpieli i cieszyć się bliskością natury, a także miejsce na wielkie ognisko, które dodatkowo podkreśli magiczną atmosferę tego miejsca. Dla tych, którzy szukają miejsca na organizację wyjątkowych wydarzeń, proponujemy nasz "Domek Imprezowy". To idealne miejscówka na zorganizowanie imprezy okolicznościowej, takiej jak urodziny czy wieczór panieński. Chociaż ten domek nie oferuje noclegu, to w ramach specjalnego pakietu można wynająć go razem z "Domkiem w Lesie", aby udanie i z radością celebrować obchodzoną uroczystość.</p>
+				<p>{{ houses.content }}</p>
 				<div class="houses__description__button">
-					<NuxtLink to="domki">
+					<NuxtLink :to="houses.button.url">
 						<Button
 							iconPos="right"
-							label="Zobacz więcej"
+							:label="houses.button.label"
 							icon="pi pi-arrow-right" />
 					</NuxtLink>
 				</div>
@@ -20,18 +20,20 @@
 				v-animateonscroll="{ enterClass: 'fadeinright' }">
 				<NuxtImg
 					class="houses__image-one"
-					src="images/about_us.jpg"
+					:src="`images/${houses.imageOne.data.attributes.name}`"
 					height="505" />
 				<NuxtImg
 					class="houses__image-second"
-					src="images/houses_4.jpg"
+					:src="`images/${houses.imageTwo.data.attributes.name}`"
 					height="260" />
 			</div>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const houses = inject("houses");
+</script>
 
 <style lang="scss" scoped>
 .houses {

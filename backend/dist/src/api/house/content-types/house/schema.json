@@ -1,0 +1,32 @@
+{
+    "kind": "singleType",
+    "collectionName": "houses",
+    "info": {
+        "singularName": "house",
+        "pluralName": "houses",
+        "displayName": "House",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "sleep": {
+            "type": "component",
+            "repeatable": false,
+            "component": "layout.offer"
+        },
+        "info": {
+            "displayName": "HouseInfo",
+            "type": "component",
+            "repeatable": true,
+            "component": "layout.house-info"
+        },
+        "gallery": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.gallery"
+        }
+    }
+}

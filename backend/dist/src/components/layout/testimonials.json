@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_layout_testimonials",
+    "info": {
+        "displayName": "Testimonials",
+        "icon": "heart"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "content": {
+            "type": "text"
+        },
+        "image": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}

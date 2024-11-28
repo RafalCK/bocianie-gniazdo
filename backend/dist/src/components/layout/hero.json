@@ -1,0 +1,31 @@
+{
+    "collectionName": "components_layout_heroes",
+    "info": {
+        "displayName": "hero",
+        "icon": "layout",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "header": {
+            "type": "string"
+        },
+        "subheader": {
+            "type": "string"
+        },
+        "button": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.link"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images",
+                "videos"
+            ]
+        }
+    }
+}

@@ -8,6 +8,10 @@
 				<div class="offers__row">
 					<div class="offers__text">
 						<span class="offers__text__header">Bocianie Gniazdo</span>
+						<span class="offers__text__header cinzel">Bocianie Gniazdo</span>
+						<span class="offers__text__header prompt">Bocianie Gniazdo</span>
+						<span class="offers__text__header urbanist">Bocianie Gniazdo</span>
+						<span class="offers__text__header playfair">Bocianie Gniazdo</span>
 						<p class="offers__text__description">To oaza spokoju i rozrywki, w której każdy znajdzie coś dla siebie. Położone na malowniczej górze, kompleks składa się z urokliwych domków i apartamentów, otoczonych przez niepowtarzalny krajobraz. To idealne miejsce na rodzinny wypoczynek, gdzie można cieszyć się bliskością natury i spędzić czas na wspólnych integracjach. Dla tych, którzy lubią aktywny odpoczynek, otoczenie górskie oferuje liczne możliwości, począwszy od malowniczych spacerów po okolicznych szlakach, aż po wspinaczkę na pobliskie szczyty. Wieczory można spędzić przyjemnie, delektując się smakiem grillowanych potraw przy basenie, relaksując się w jacuzzi lub rozgrzewając w saunie. Bocianie Gniazdo to także doskonałe miejsce na organizację wyjątkowych wydarzeń. Oferujemy możliwość wynajęcia całego kompleksu na imprezy okolicznościowe, takie jak wesela, komunie czy inne uroczystości. Dodatkowo, dla tych, którzy chcą zorganizować niezapomnianą imprezę, dostępny jest również domek imprezowy, idealny na wieczór panieński czy urodziny.</p>
 					</div>
 					<div class="offers__image">
@@ -86,6 +90,22 @@ definePageMeta({
 			text-decoration-color: $color-primary;
 			text-underline-offset: rem(6);
 			line-height: 46px;
+
+			&.cinzel {
+				font-family: "Cinzel", serif;
+			}
+
+			&.prompt {
+				font-family: "Prompt", sans-serif;
+			}
+
+			&.urbanist {
+				font-family: "Urbanist", sans-serif;
+			}
+
+			&.playfair {
+				font-family: "Playfair Display SC", serif;
+			}
 		}
 	}
 

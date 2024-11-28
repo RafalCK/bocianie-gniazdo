@@ -331,9 +331,8 @@ const imageClick = (index) => {
 			&__box {
 				position: relative;
 				padding: rem(50) rem(40);
-				background: $color-primary;
+				background: $color-secondary;
 				margin-left: rem(-20);
-				color: white;
 			}
 		}
 	}

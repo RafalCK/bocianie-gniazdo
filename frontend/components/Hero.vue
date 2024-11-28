@@ -47,7 +47,7 @@ const slides = [
 	{
 		header: "Zrelaksuj się u nas",
 		description: "blisko natury w magicznej atmosferze",
-		image: "images/hero_4.jpg",
+		image: "images/hero_2.jpg",
 	},
 	{
 		header: "Piękne widoki",
@@ -87,7 +87,7 @@ const slides = [
 		height: 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: bottom center;
+		background-position: center;
 	}
 	&__text {
 		position: absolute;

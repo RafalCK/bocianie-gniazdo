@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_global_addresses",
+  "info": {
+    "displayName": "Contact",
+    "icon": "gate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "height": {
+      "type": "integer",
+      "default": 20
+    },
+    "url": {
+      "type": "string"
+    },
+    "blank": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconame": {
+      "type": "string"
+    }
+  }
+}

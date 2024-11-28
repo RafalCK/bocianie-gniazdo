@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 const items = [
+	{ route: "/", label: "Strona główna" },
 	{ route: "/o-nas", label: "O nas" },
 	{ route: "/oferta", label: "Oferta" },
 	{ route: "/domki", label: "Domki" },

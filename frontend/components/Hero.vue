@@ -1,7 +1,7 @@
 <template>
 	<div class="hero">
 		<Carousel
-			:value="slides"
+			:value="hero"
 			:numVisible="1"
 			:numScroll="1"
 			:showIndicators="false"
@@ -11,21 +11,21 @@
 				<div class="hero__item">
 					<div
 						class="hero__image"
-						:style="`background-image: url(${slotProps.data.image})`"></div>
+						:style="`background-image: url(images/${slotProps.data.image.data.attributes.name})`"></div>
 					<div class="hero__text">
 						<span class="hero__header">
 							{{ slotProps.data.header }}
 						</span>
 						<span class="hero__description">
-							{{ slotProps.data.description }}
+							{{ slotProps.data.subheader }}
 						</span>
 						<NuxtLink
-							v-if="slotProps.data.buttonLink"
-							:to="slotProps.data.buttonLink">
+							v-if="slotProps.data.button && slotProps.data.button.url"
+							:to="slotProps.data.button.url">
 							<Button
 								class="hero__button"
-								v-if="slotProps.data.buttonText">
-								<span class="hero__button__label">{{ slotProps.data.buttonText }}</span></Button
+								v-if="slotProps.data.button.label">
+								<span class="hero__button__label">{{ slotProps.data.button.label }}</span></Button
 							>
 						</NuxtLink>
 					</div>
@@ -36,25 +36,7 @@
 </template>
 
 <script setup lang="ts">
-const slides = [
-	{
-		header: "Bocianie Gniazdo",
-		description: "Zarezerwuj odpoczynek już teraz",
-		image: "images/hero_1.jpg",
-		buttonText: "Wolne terminy",
-		buttonLink: "rezerwacje",
-	},
-	{
-		header: "Zrelaksuj się u nas",
-		description: "blisko natury w magicznej atmosferze",
-		image: "images/hero_2.jpg",
-	},
-	{
-		header: "Piękne widoki",
-		description: "są u nas gwarantowne",
-		image: "images/hero_3.jpg",
-	},
-];
+const hero = inject("hero");
 </script>
 
 <style lang="scss" scoped>

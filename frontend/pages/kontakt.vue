@@ -48,25 +48,15 @@
 				</div>
 				<div class="contact__right">
 					<div class="contact__info">
-						<a
-							href="tel:+48882806201"
+						<NuxtLink
+							v-for="contact in contacts"
+							:key="contact.value"
+							:to="contact.url"
+							:target="contact.blank ? '_blank' : null"
 							class="contact__info__item contact__info__item__phone">
-							<div class="contact__info__item__icon"><span class="pi pi-phone"></span></div>
-							<span>+48 882 806 201</span>
-						</a>
-						<a
-							href="https://maps.app.goo.gl/WBFB46Thjfnenf8DA"
-							traget="_blank"
-							class="contact__info__item contact__info__item__address">
-							<div class="contact__info__item__icon"><span class="pi pi-map-marker"></span></div>
-							<span>Olszówka 34-700</span>
-						</a>
-						<a
-							href="mailto:e.bockowska@wp.pl"
-							class="contact__info__item contact__info__item__email">
-							<div class="contact__info__item__icon"><span class="pi pi-envelope"></span></div>
-							<span>e.bockowska@wp.pl</span>
-						</a>
+							<div class="contact__info__item__icon"><span :class="contact.iconame"></span></div>
+							<span>{{ contact.value }}</span>
+						</NuxtLink>
 					</div>
 				</div>
 			</div>
@@ -81,6 +71,8 @@ import Map from "~/components/homepage/Map.vue";
 definePageMeta({
 	layout: "page-layout",
 });
+
+const contacts = inject("contacts");
 
 const name = ref("");
 const phone = ref("");

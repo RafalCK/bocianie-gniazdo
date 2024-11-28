@@ -2,106 +2,35 @@
 	<div class="attractions">
 		<span class="attractions__header">Atrakcje</span>
 		<div class="attractions__container">
-			<div class="attractions__item">
+			<div
+				class="attractions__item"
+				v-for="attraction in attractions"
+				:key="attraction.name">
 				<a
 					class="attractions__item__link"
-					href="https://namaciejowej.pl"
+					:href="attraction.button.url"
 					target="_blank" />
 				<div class="attractions__item__image">
 					<div class="attractions__item__image__image">
 						<NuxtImg
-							src="images/maciejowa.webp"
+							:src="`images/${attraction.image.data.attributes.name}`"
 							height="455" />
 					</div>
 					<div class="attractions__item__button">
-						<span class="attractions__item__button__label">Zobacz</span>
+						<span class="attractions__item__button__label">{{ attraction.button.label }}</span>
 					</div>
 				</div>
 				<div class="attractions__item__content">
-					<span class="attractions__item__name">Maciejowa</span>
-				</div>
-			</div>
-			<div class="attractions__item">
-				<a
-					class="attractions__item__link"
-					href="https://www.facebook.com/parkzdrojowy"
-					target="_blank" />
-				<div class="attractions__item__image">
-					<div class="attractions__item__image__image">
-						<NuxtImg
-							src="images/park_zdrojowy.jpg"
-							height="455" />
-					</div>
-					<div class="attractions__item__button">
-						<span class="attractions__item__button__label">Zobacz</span>
-					</div>
-				</div>
-				<div class="attractions__item__content">
-					<span class="attractions__item__name">Park Zdrojowy</span>
-				</div>
-			</div>
-			<div class="attractions__item">
-				<a
-					class="attractions__item__link"
-					href="https://stare-wierchy.pttk.pl"
-					target="_blank" />
-				<div class="attractions__item__image">
-					<div class="attractions__item__image__image">
-						<NuxtImg
-							src="images/stare_wierchy.jpg"
-							height="455" />
-					</div>
-					<div class="attractions__item__button">
-						<span class="attractions__item__button__label">Zobacz</span>
-					</div>
-				</div>
-				<div class="attractions__item__content">
-					<span class="attractions__item__name">Stare Wierchy</span>
-				</div>
-			</div>
-			<div class="attractions__item">
-				<a
-					class="attractions__item__link"
-					href="https://rabkoland.pl"
-					target="_blank" />
-				<div class="attractions__item__image">
-					<div class="attractions__item__image__image">
-						<NuxtImg
-							src="images/rabkoland.jpg"
-							height="455" />
-					</div>
-					<div class="attractions__item__button">
-						<span class="attractions__item__button__label">Zobacz</span>
-					</div>
-				</div>
-				<div class="attractions__item__content">
-					<span class="attractions__item__name">Rabkoland</span>
-				</div>
-			</div>
-			<div class="attractions__item">
-				<a
-					class="attractions__item__link"
-					href="https://turbacz.net"
-					target="_blank" />
-				<div class="attractions__item__image">
-					<div class="attractions__item__image__image">
-						<NuxtImg
-							src="images/turbacz.jpg"
-							height="455" />
-					</div>
-					<div class="attractions__item__button">
-						<span class="attractions__item__button__label">Zobacz</span>
-					</div>
-				</div>
-				<div class="attractions__item__content">
-					<span class="attractions__item__name">Turbacz</span>
+					<span class="attractions__item__name">{{ attraction.name }}</span>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const attractions = inject("attractions");
+</script>
 
 <style lang="scss" scoped>
 .attractions {

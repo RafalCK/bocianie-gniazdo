@@ -5,13 +5,13 @@
 			header="Domki"></PageHero>
 		<div class="wrapper">
 			<div class="houses__container">
-				<span class="houses__header">Gdzie będę spać?</span>
+				<span class="houses__header">{{ house.sleep.header }}</span>
 				<div class="houses__item">
 					<div
 						class="houses__item__image animation-duration-1000 animation-ease-in-out"
 						v-animateonscroll="{ enterClass: 'fadeinleft' }">
 						<NuxtImg
-							src="images/about_us.jpg"
+							:src="`images/${house.sleep.image.data.attributes.name}`"
 							width="375"
 							height="505" />
 					</div>
@@ -19,197 +19,31 @@
 						<div
 							class="houses__item__description__box animation-duration-1000 animation-ease-in-out"
 							v-animateonscroll="{ enterClass: 'fadeinright' }">
-							<p>W pięknych i komfortowych domkach, w których światło rządzi się prawami natury. Budzi Was ciepło promieni słonecznych, długie cienie kładą się na ścianach i podłodze dodając przytulności, a wieczorami relaksujemy się przy ciepłych zachodach słońca za górami. Warto dostosować się do tego naturalnego rytmu i brać z dni spędzony na szczycie góry co najlepsze.</p>
-							<p>W każdym domku znajduje się miejsce dla 6 osób. Na piętrze, na otwartej antresoli znajduje się łóżko dwuosobowe oraz dwa pojedyncze – nie stawialiśmy tam ściany, aby nie ograniczać wspaniałej, otwartej przestrzeni. Na górze znajduje się także siatka, na której można się relaksować i podziwiać wschody i zachody słońca. Na dole domków znajduje się salon z rozkładaną kanapą (dwuosobową), łazienka i aneks kuchenny.</p>
-							<p>W domu mamy zasięg i internet, a pod domem zdarza się błoto, więc zapakujcie solidne buty lub kalosze. Wiosną sąsiad zaczyna wypas krów i owiec, więc może dobiec Was cała orkiestra dzwonków. I zapachów. Do domu prowadzi wymagająca droga dojazdowa – auta z bardzo niskim zawieszeniem mogą mieć problem.</p>
+							<div v-html="house.sleep.description"></div>
 						</div>
 					</div>
 				</div>
 				<div class="houses__info">
-					<span class="houses__info__header">Podstawowe informacje:</span>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/ludzie.svg"
-							height="20" />
-						<span class="houses__info__item__name">do 6 osób</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/rozmiar.svg"
-							height="15" />
-						<span class="houses__info__item__name">35 m²</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/lazienka.svg"
-							height="20" />
-						<span class="houses__info__item__name">łazienka: 1</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/pojedyncze_lozko.svg"
-							height="20" />
-						<span class="houses__info__item__name">pojedyncze łóżko: 2</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/kanapa.svg"
-							height="20" />
-						<span class="houses__info__item__name">kanapa rozkładana: 1</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/podwojne_lozko.svg"
-							height="20" />
-						<span class="houses__info__item__name">duże łóżko podwójne: 1</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/zwierzeta.svg"
-							height="20" />
-						<span class="houses__info__item__name"> akceptujemy małe psy, koty, średnie psy</span>
-					</div>
-					<span class="houses__info__header">Wyposażenie:</span>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/tv.svg"
-							height="20" />
-						<span class="houses__info__item__name">tv w pokojach</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/klimatyzacja.svg"
-							height="20" />
-						<span class="houses__info__item__name">klimatyzacja</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/reczniki.svg"
-							height="20" />
-						<span class="houses__info__item__name">ręczniki</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/posciel.svg"
-							height="20" />
-						<span class="houses__info__item__name">pościel</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/suszarka.svg"
-							height="20" />
-						<span class="houses__info__item__name">suszarka</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/mikrofala.svg"
-							height="20" />
-						<span class="houses__info__item__name">mikrofala</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/kuchenka.svg"
-							height="20" />
-						<span class="houses__info__item__name">płyta kuchenna</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/zmywarka.svg"
-							height="20" />
-						<span class="houses__info__item__name">zmywarka</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/sztucce.svg"
-							height="20" />
-						<span class="houses__info__item__name">naczynia i sztućce</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/kieliszki.svg"
-							height="20" />
-						<span class="houses__info__item__name">kieliszki</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/patelnia.svg"
-							height="20" />
-						<span class="houses__info__item__name">patelnie i garczki</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/lodowka.svg"
-							height="20" />
-						<span class="houses__info__item__name">lodowka</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/srodki.svg"
-							height="20" />
-						<span class="houses__info__item__name">środki do mycia</span>
-					</div>
-					<span class="houses__info__header">Udogodnienia:</span>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/wifi.svg"
-							height="20" />
-						<span class="houses__info__item__name">wifi</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/basen.svg"
-							height="20" />
-						<span class="houses__info__item__name">basen</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/lezak.svg"
-							height="20" />
-						<span class="houses__info__item__name">leżaki</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/balia.svg"
-							height="16" />
-						<span class="houses__info__item__name">balia</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/sauna.svg"
-							height="20" />
-						<span class="houses__info__item__name">sauna</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/ogrod.svg"
-							height="24" />
-						<span class="houses__info__item__name">ogród</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/grill.svg"
-							height="20" />
-						<span class="houses__info__item__name">grill</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/ognisko.svg"
-							height="20" />
-						<span class="houses__info__item__name">miejsce na ognisko</span>
-					</div>
-					<div class="houses__info__item">
-						<NuxtImg
-							src="icons/czyszczenie.svg"
-							height="20" />
-						<span class="houses__info__item__name">sprzątanie przed przyjazdem</span>
-					</div>
+					<template
+						v-for="info in house.info"
+						:key="info.header">
+						<span class="houses__info__header">{{ info.header }}</span>
+						<div
+							class="houses__info__item"
+							v-for="item in info.items">
+							<NuxtImg
+								:src="`icons/${item.icon.data.attributes.name}`"
+								:height="item.height" />
+							<span class="houses__info__item__name">{{ item.value }}</span>
+						</div>
+					</template>
 				</div>
-				<span class="houses__header">Galeria</span>
+				<span class="houses__header">{{ house.gallery.header }}</span>
 				<div class="houses__galleria">
 					<Galleria
 						v-model:activeIndex="activeIndex"
 						v-model:visible="displayCustom"
-						:value="images"
+						:value="house.gallery.images.data"
 						:responsiveOptions="responsiveOptions"
 						:numVisible="3"
 						:circular="true"
@@ -218,25 +52,22 @@
 						:showThumbnails="false">
 						<template #item="slotProps">
 							<img
-								:src="slotProps.item.itemImageSrc"
-								:alt="slotProps.item.alt"
+								:src="`images/houses/${slotProps.item.attributes.name}`"
 								style="width: 100%; display: block" />
 						</template>
 						<template #thumbnail="slotProps">
 							<img
-								:src="slotProps.item.thumbnailImageSrc"
-								:alt="slotProps.item.alt"
+								:src="`images/houses/${slotProps.item.attributes.name}`"
 								style="display: block" />
 						</template>
 					</Galleria>
-
 					<div
-						v-if="images"
+						v-if="house.gallery.images.data"
 						class="houses__galleria__item"
-						v-for="(image, index) of images"
+						v-for="(image, index) of house.gallery.images.data"
 						:key="index">
 						<img
-							:src="image.thumbnailImageSrc"
+							:src="`images/houses/${image.attributes.name}`"
 							:alt="image.alt"
 							style="cursor: pointer"
 							@click="imageClick(index)" />
@@ -252,44 +83,21 @@ definePageMeta({
 	layout: "page-layout",
 });
 
-const images = [
-	{
-		itemImageSrc: "images/houses/1.jpg",
-		thumbnailImageSrc: "images/houses/1.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/2.jpg",
-		thumbnailImageSrc: "images/houses/2.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/3.jpg",
-		thumbnailImageSrc: "images/houses/3.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/4.jpg",
-		thumbnailImageSrc: "images/houses/4.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/5.jpg",
-		thumbnailImageSrc: "images/houses/5.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/6.jpg",
-		thumbnailImageSrc: "images/houses/6.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-	{
-		itemImageSrc: "images/houses/7.jpg",
-		thumbnailImageSrc: "images/houses/7.jpg",
-		alt: "Zdjęcie w środku domku",
-	},
-];
+const { find } = useStrapi();
+
+const { data } = await useAsyncData("house", async () => {
+	try {
+		const response = await find("house", { populate: "deep" });
+		return response;
+	} catch (err) {
+		return null;
+	}
+});
+
+const house = data.value?.data.attributes;
+
 const activeIndex = ref(0);
+
 const responsiveOptions = ref([
 	{
 		breakpoint: "1024px",

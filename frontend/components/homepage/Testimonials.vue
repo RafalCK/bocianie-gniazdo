@@ -12,13 +12,13 @@
 				<div class="testimonials__item mx-5 p-3">
 					<div class="testimonials__item__avatar">
 						<Avatar
-							:image="slotProps.data.image"
+							:image="`images/${slotProps.data.image.data.attributes.name}`"
 							class="mr-2"
 							size="xlarge"
 							shape="circle" />
 					</div>
 					<div class="testimonials__item__opinion">
-						<p>{{ slotProps.data.opinion }}</p>
+						<p>{{ slotProps.data.content }}</p>
 						<span class="testimonials__item__name">- {{ slotProps.data.name }}</span>
 					</div>
 				</div>
@@ -28,28 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const testimonials = [
-	{
-		name: "Grzegorz",
-		opinion: "Piękne miejsce, idealne dla dużej grupy znajomych chcących spędzić trochę czasu na łonie natury. Domki oraz ich otoczenie bardzo czyste i zadbane. Gospodarze bardzo gościnni i pomocni.",
-		image: "images/grzegorz.jpeg",
-	},
-	{
-		name: "Agnieszka",
-		opinion: "Piękny domek i cudowna cisza. Wlascicielka bardzo mila i pomocna. Świetny kontakt, zawsze szybka odpowiedz. Gorąco polecam pobyt.",
-		image: "images/agnieszka.jpeg",
-	},
-	{
-		name: "Kamil",
-		opinion: "Bardzo polecamy! świetne miejsce - bardzo dobrze przygotowane, kontaktowi gospodarze, piękna okolica i piękne widoki.",
-		image: "images/kamil.jpeg",
-	},
-	{
-		name: "Piotr",
-		opinion: "Piękne miejsce, piękne domki, cudowny widok. Super basen dla dzieciaków i dużo przestrzeni. Właściciele bardzo pomocni i elastyczni. Gorąco polecam i na pewno wrócimy!",
-		image: "images/piotr.jpeg",
-	},
-];
+const testimonials = inject("testimonials");
 
 const responsiveOptions = ref([
 	{

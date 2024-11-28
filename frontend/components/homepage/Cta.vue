@@ -2,17 +2,21 @@
 	<div class="cta">
 		<div
 			class="cta__image"
-			:style="`background-image: url('images/hero_1.jpg')`"></div>
+			:style="`background-image: url(images/${cta.image.data.attributes.name})`"></div>
 		<div class="cta__content">
-			<span class="cta__text">Czas na wyjątkowe chwile. Wynajmij swoje marzenia i zarezerwuj pobyt już teraz.</span>
-			<NuxtLink to="rezerwacje">
-				<Button class="cta__button"> <span class="cta__button__label">Rezerwuj</span></Button>
+			<span class="cta__text">{{ cta.content }}</span>
+			<NuxtLink :to="cta.button.url">
+				<Button class="cta__button">
+					<span class="cta__button__label">{{ cta.button.label }}</span></Button
+				>
 			</NuxtLink>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const cta = inject("cta");
+</script>
 
 <style lang="scss" scoped>
 .cta {

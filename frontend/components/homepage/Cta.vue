@@ -2,7 +2,7 @@
 	<div class="cta">
 		<div
 			class="cta__image"
-			:style="`background-image: url(images/${cta.image.data.attributes.name})`"></div>
+			:style="`background-image: url(http://localhost:1337${cta.image.url})`"></div>
 		<div class="cta__content">
 			<span class="cta__text">{{ cta.content }}</span>
 			<NuxtLink :to="cta.button.url">

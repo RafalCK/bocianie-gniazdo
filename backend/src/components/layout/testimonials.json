@@ -2,7 +2,7 @@
   "collectionName": "components_layout_testimonials",
   "info": {
     "displayName": "Testimonials",
-    "icon": "heart"
+    "icon": "crown"
   },
   "options": {},
   "attributes": {
@@ -10,11 +10,13 @@
       "type": "string"
     },
     "content": {
-      "type": "text"
+      "type": "string"
     },
     "image": {
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ],
       "type": "media",
       "multiple": false

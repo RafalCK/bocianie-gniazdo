@@ -14,32 +14,49 @@
 								<FloatLabel>
 									<InputText
 										id="username"
-										v-model="name" />
+										v-model="username" />
 									<label for="username">Imię</label>
 								</FloatLabel>
 								<FloatLabel>
 									<InputText
 										id="phone"
 										v-model="phone" />
-									<label for="username">Telefon</label>
+									<label for="phone">Telefon</label>
 								</FloatLabel>
 								<FloatLabel>
 									<InputText
 										id="email"
 										v-model="email" />
-									<label for="username">Adres e-mail</label>
+									<label for="email">Adres e-mail</label>
 								</FloatLabel>
 								<FloatLabel>
 									<Textarea
 										id="message"
 										rows="5"
 										v-model="message" />
-									<label for="username">Wiadomość</label>
+									<label for="message">Wiadomość</label>
 								</FloatLabel>
+								<div class="d-flex">
+									<Checkbox
+										v-model="consent"
+										name="consent"
+										binary />
+									<label
+										for="consent"
+										class="ml-2"
+										>Zaznaczając to pole, wyrażasz zgodę na przetwarzanie Twoich danych osobowych w celu wysyłania wiadomości zgodnie z naszą
+										<NuxtLink
+											target="_blank"
+											to="/polityka-prywatnosci"
+											>Polityką Prywatności</NuxtLink
+										>.</label
+									>
+								</div>
 								<div class="contact__form__form__button">
 									<Button
 										iconPos="right"
 										label="Wyślij"
+										:disabled="!consent"
 										icon="pi pi-send" />
 								</div>
 							</form>
@@ -74,10 +91,11 @@ definePageMeta({
 
 const contacts = inject("contacts");
 
-const name = ref("");
+const username = ref("");
 const phone = ref("");
 const email = ref("");
 const message = ref("");
+const consent = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -103,12 +121,10 @@ const message = ref("");
 			justify-content: center;
 			text-align: center;
 			font-size: rem(38);
-			font-family: $font-family-bold;
+			font-family: $font-family-cinzel;
+			font-weight: 700;
 			margin-bottom: rem(10);
 			text-transform: uppercase;
-			text-decoration: underline;
-			text-decoration-color: $color-primary;
-			text-underline-offset: rem(6);
 			line-height: 46px;
 		}
 
@@ -137,6 +153,7 @@ const message = ref("");
 			&__button {
 				display: flex;
 				justify-content: flex-end;
+				margin-top: rem(16);
 			}
 		}
 	}
@@ -153,7 +170,7 @@ const message = ref("");
 			&__icon {
 				width: rem(60);
 				height: rem(60);
-				background-color: $color-primary;
+				background-color: $color-white;
 				border-radius: 50%;
 
 				display: flex;
@@ -161,7 +178,7 @@ const message = ref("");
 				align-items: center;
 
 				margin: rem(8);
-				color: $color-white;
+				color: $color-text;
 				font-weight: $font-weight-bold;
 
 				:deep(.pi) {
@@ -170,11 +187,11 @@ const message = ref("");
 			}
 
 			&:hover {
-				color: $color-primary;
+				color: $color-black;
 
 				.contact__info__item__icon {
-					background-color: $color-white;
-					color: $color-primary;
+					background-color: $color-secondary;
+					color: $color-black;
 				}
 			}
 		}
@@ -182,6 +199,12 @@ const message = ref("");
 
 	:deep(.map__header) {
 		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact__form__box {
+		padding: rem(50) rem(20) rem(20) rem(20);
 	}
 }
 

@@ -9,8 +9,9 @@
 				class="offer__image">
 				<NuxtImg
 					class="offer__image__image"
-					:src="`images/${offer.image.data.attributes.name}`" />
-				<span class="offer__image__name">Bocianie gniazdo</span>
+					provider="strapi"
+					:src="`${offer.image.url}`" />
+				<span class="offer__image__name">{{ offer.header }}</span>
 			</NuxtLink>
 		</div>
 	</div>
@@ -29,12 +30,10 @@ const offers = inject("offers");
 		display: flex;
 		justify-content: center;
 		font-size: rem(38);
-		font-family: $font-family-bold;
+		font-family: $font-family-cinzel;
+		font-weight: 700;
 		margin-bottom: rem(50);
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(6);
 	}
 
 	&__container {
@@ -74,7 +73,7 @@ const offers = inject("offers");
 
 			&::after {
 				width: 0;
-				background: $color-primary;
+				background: $color-text;
 				height: 2px;
 				content: "";
 				position: absolute;
@@ -113,7 +112,7 @@ const offers = inject("offers");
 		}
 
 		&__image {
-			width: 100%;
+			width: 90%;
 			height: rem(200);
 			margin-bottom: rem(60);
 

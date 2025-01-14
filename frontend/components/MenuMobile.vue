@@ -49,7 +49,7 @@ watch(
 
 	&.open {
 		.bar {
-			background-color: $color-white;
+			background-color: $color-text;
 		}
 	}
 
@@ -57,7 +57,7 @@ watch(
 		display: block;
 		width: rem(25);
 		height: rem(3);
-		background-color: $color-primary;
+		background-color: $color-secondary;
 		margin: rem(5) 0;
 		transition: all 0.3s ease;
 
@@ -109,7 +109,7 @@ watch(
 			z-index: 1000;
 			width: 85%;
 			height: auto;
-			background-color: $color-primary;
+			background-color: $color-secondary;
 			opacity: 0;
 			text-align: center;
 			transform: translate3d(100%, 0, 0);
@@ -127,11 +127,12 @@ watch(
 			.nav__link {
 				display: flex;
 				font-size: rem(22);
+				color: $color-text;
 				width: 85%;
 				line-height: 36px;
 
 				&::after {
-					background: $color-white;
+					background: $color-text;
 					bottom: 0;
 				}
 
@@ -154,6 +155,11 @@ watch(
 
 			.nav__reservation {
 				display: flex;
+
+				&__link {
+					color: $color-text;
+					border: 1px solid $color-text;
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 <template>
 	<div class="houses">
 		<PageHero
-			img="images/domki.jpg"
+			img="images/about.jpg"
 			header="Domki"></PageHero>
 		<div class="wrapper">
 			<div class="houses__container">
@@ -11,15 +11,15 @@
 						class="houses__item__image animation-duration-1000 animation-ease-in-out"
 						v-animateonscroll="{ enterClass: 'fadeinleft' }">
 						<NuxtImg
-							:src="`images/${house.sleep.image.data.attributes.name}`"
-							width="375"
-							height="505" />
+							provider="strapi"
+							:src="`${house.sleep.image.url}`"
+							width="375" />
 					</div>
 					<div class="houses__item__description">
 						<div
 							class="houses__item__description__box animation-duration-1000 animation-ease-in-out"
 							v-animateonscroll="{ enterClass: 'fadeinright' }">
-							<div v-html="house.sleep.description"></div>
+							<p v-html="house.sleep.description"></p>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,8 @@
 							class="houses__info__item"
 							v-for="item in info.items">
 							<NuxtImg
-								:src="`icons/${item.icon.data.attributes.name}`"
+								provider="strapi"
+								:src="`${item.icon.url}`"
 								:height="item.height" />
 							<span class="houses__info__item__name">{{ item.value }}</span>
 						</div>
@@ -43,7 +44,7 @@
 					<Galleria
 						v-model:activeIndex="activeIndex"
 						v-model:visible="displayCustom"
-						:value="house.gallery.images.data"
+						:value="house.gallery.images"
 						:responsiveOptions="responsiveOptions"
 						:numVisible="3"
 						:circular="true"
@@ -52,23 +53,29 @@
 						:showThumbnails="false">
 						<template #item="slotProps">
 							<img
-								:src="`images/houses/${slotProps.item.attributes.name}`"
+								provider="strapi"
+								:src="`http://localhost:1337${slotProps.item.url}`"
+								:alt="slotProps.item.alt"
 								style="width: 100%; display: block" />
 						</template>
 						<template #thumbnail="slotProps">
 							<img
-								:src="`images/houses/${slotProps.item.attributes.name}`"
+								provider="strapi"
+								:src="`http://localhost:1337${slotProps.item.url}`"
+								:alt="slotProps.item.alt"
 								style="display: block" />
 						</template>
 					</Galleria>
 					<div
-						v-if="house.gallery.images.data"
+						v-if="house.gallery.images"
 						class="houses__galleria__item"
-						v-for="(image, index) of house.gallery.images.data"
+						v-for="(image, index) of house.gallery.images"
 						:key="index">
-						<img
-							:src="`images/houses/${image.attributes.name}`"
+						<NuxtImg
+							provider="strapi"
 							:alt="image.alt"
+							:src="`${image.url}`"
+							:height="image.height"
 							style="cursor: pointer"
 							@click="imageClick(index)" />
 					</div>
@@ -87,14 +94,14 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("house", async () => {
 	try {
-		const response = await find("house", { populate: "deep" });
+		const response = await find("house", { pLevel: "5" });
 		return response;
 	} catch (err) {
 		return null;
 	}
 });
 
-const house = data.value?.data.attributes;
+const house = data.value?.data;
 
 const activeIndex = ref(0);
 
@@ -138,9 +145,13 @@ const imageClick = (index) => {
 			line-height: 22px;
 			&__box {
 				position: relative;
-				padding: rem(50) rem(40);
+				padding: rem(20) rem(40);
 				background: $color-secondary;
 				margin-left: rem(-20);
+
+				p {
+					margin: 0;
+				}
 			}
 		}
 	}
@@ -150,13 +161,11 @@ const imageClick = (index) => {
 		justify-content: center;
 		text-align: center;
 		font-size: rem(38);
-		font-family: $font-family-bold;
+		font-family: $font-family-cinzel;
+		font-weight: 700;
 		padding-top: rem(40);
 		margin-bottom: rem(50);
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(10);
 		line-height: 46px;
 	}
 
@@ -165,6 +174,7 @@ const imageClick = (index) => {
 		flex-wrap: wrap;
 		gap: rem(20);
 		margin-top: rem(60);
+		margin-bottom: rem(30);
 
 		&__header {
 			display: block;

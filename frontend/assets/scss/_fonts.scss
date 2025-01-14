@@ -1,47 +1,63 @@
 @font-face {
 	font-family: "Core Sans C 15";
-	src: url("/fonts/core_sans_c/CoreSansC-15Thin.eot");
-	src: local("Core Sans C 15 Thin"), local("CoreSansC-15Thin"), url("/fonts/core_sans_c/CoreSansC-15Thin.eot?#iefix") format("embedded-opentype"), url("/fonts/core_sans_c/CoreSansC-15Thin.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-15Thin.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-15Thin.ttf") format("truetype");
+	src: url("/fonts/core_sans_c/CoreSansC-15Thin.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-15Thin.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-15Thin.ttf") format("truetype");
 	font-weight: 100;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Core Sans C 65";
-	src: url("/fonts/core_sans_c/CoreSansC-65Bold.eot");
-	src: local("Core Sans C 65 Bold"), local("CoreSansC-65Bold"), url("/fonts/core_sans_c/CoreSansC-65Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/core_sans_c/CoreSansC-65Bold.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-65Bold.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-65Bold.ttf") format("truetype");
+	src: url("/fonts/core_sans_c/CoreSansC-65Bold.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-65Bold.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-65Bold.ttf") format("truetype");
 	font-weight: bold;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Core Sans C 55";
-	src: url("/fonts/core_sans_c/CoreSansC-55Medium.eot");
-	src: local("Core Sans C 55 Medium"), local("CoreSansC-55Medium"), url("/fonts/core_sans_c/CoreSansC-55Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/core_sans_c/CoreSansC-55Medium.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-55Medium.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-55Medium.ttf") format("truetype");
+	src: url("/fonts/core_sans_c/CoreSansC-55Medium.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-55Medium.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-55Medium.ttf") format("truetype");
 	font-weight: 500;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Core Sans C 35";
-	src: url("/fonts/core_sans_c/CoreSansC-35Light.eot");
-	src: local("Core Sans C 35 Light"), local("CoreSansC-35Light"), url("/fonts/core_sans_c/CoreSansC-35Light.eot?#iefix") format("embedded-opentype"), url("/fonts/core_sans_c/CoreSansC-35Light.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-35Light.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-35Light.ttf") format("truetype");
+	src: url("/fonts/core_sans_c/CoreSansC-35Light.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-35Light.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-35Light.ttf") format("truetype");
 	font-weight: 300;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Core Sans C 45";
-	src: url("/fonts/core_sans_c/CoreSansC-45Regular.eot");
-	src: local("Core Sans C 45 Regular"), local("CoreSansC-45Regular"), url("/fonts/core_sans_c/CoreSansC-45Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/core_sans_c/CoreSansC-45Regular.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-45Regular.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-45Regular.ttf") format("truetype");
+	src: url("/fonts/core_sans_c/CoreSansC-45Regular.woff2") format("woff2"), url("/fonts/core_sans_c/CoreSansC-45Regular.woff") format("woff"), url("/fonts/core_sans_c/CoreSansC-45Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-	font-family: "Raleway";
-	src: url("/fonts/raleway/Raleway.eot");
-	src: local("Raleway"), local("Raleway"), url("/fonts/raleway/Raleway.eot?#iefix") format("embedded-opentype"), url("/fonts/raleway/Raleway.woff2") format("woff2"), url("/fonts/raleway/Raleway.woff") format("woff"), url("/fonts/raleway/Raleway.ttf") format("truetype");
-	font-weight: normal;
+	font-family: "Cinzel";
+	src: url("/fonts/cinzel/cinzel-400.woff2") format("woff2"), url("/fonts/cinzel/cinzel-400.woff") format("woff"), url("/fonts/cinzel/cinzel/cinzel-400.ttf") format("truetype");
+	font-weight: 400;
 	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cinzel";
+	src: url("/fonts/cinzel/cinzel-600.woff2") format("woff2"), url("/fonts/cinzel/cinzel-600.woff") format("woff"), url("/fonts/cinzel/cinzel-600.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cinzel";
+	src: url("/fonts/cinzel/cinzel-700.woff2") format("woff2"), url("/fonts/cinzel/cinzel-700.woff") format("woff"), url("/fonts/cinzel/cinzel-700.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }

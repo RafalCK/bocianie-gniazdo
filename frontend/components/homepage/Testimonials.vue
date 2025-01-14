@@ -12,7 +12,7 @@
 				<div class="testimonials__item mx-5 p-3">
 					<div class="testimonials__item__avatar">
 						<Avatar
-							:image="`images/${slotProps.data.image.data.attributes.name}`"
+							:image="`http://localhost:1337${slotProps.data.image.url}`"
 							class="mr-2"
 							size="xlarge"
 							shape="circle" />
@@ -47,12 +47,10 @@ const responsiveOptions = ref([
 		display: flex;
 		justify-content: center;
 		font-size: rem(38);
-		font-family: $font-family-bold;
+		font-family: $font-family-cinzel;
+		font-weight: 700;
 		margin-bottom: rem(50);
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(6);
 	}
 
 	:deep(.p-avatar) {
@@ -91,6 +89,7 @@ const responsiveOptions = ref([
 
 @media (max-width: 440px) {
 	.testimonials {
+		margin-top: rem(50);
 		:deep(.p-avatar) {
 			display: none;
 		}
@@ -104,6 +103,7 @@ const responsiveOptions = ref([
 
 @media (min-width: 441px) and (max-width: 1075px) {
 	.testimonials {
+		margin-top: rem(50);
 		:deep(.p-avatar) {
 			width: rem(50);
 			height: rem(50);

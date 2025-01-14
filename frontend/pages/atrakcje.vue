@@ -14,15 +14,16 @@
 						<div class="attractions__text">
 							<span class="attractions__text__header">{{ item.header }}</span>
 							<p
-								v-if="item.content"
+								v-if="item.description"
 								class="attractions__text__description">
-								{{ item.content }}
+								{{ item.description }}
 							</p>
 						</div>
 						<div class="attractions__image">
 							<NuxtImg
 								class="attractions__image__image"
-								:src="`images/${item.image.data.attributes.name}`" />
+								provider="strapi"
+								:src="`${item.image.url}`" />
 						</div>
 					</div>
 					<div
@@ -31,14 +32,15 @@
 						<div class="attractions__image">
 							<NuxtImg
 								class="attractions__image__image"
-								:src="`images/${item.image.data.attributes.name}`" />
+								provider="strapi"
+								:src="`${item.image.url}`" />
 						</div>
 						<div class="attractions__text">
 							<span class="attractions__text__header">{{ item.header }}</span>
 							<p
-								v-if="item.content"
+								v-if="item.description"
 								class="attractions__text__description">
-								{{ item.content }}
+								{{ item.description }}
 							</p>
 						</div>
 					</div>
@@ -57,14 +59,14 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("attraction", async () => {
 	try {
-		const response = await find("attraction", { populate: "deep" });
+		const response = await find("attraction", { pLevel: "5" });
 		return response;
 	} catch (err) {
 		return null;
 	}
 });
 
-const attraction = data.value?.data.attributes.attraction;
+const attraction = data?.value?.data?.attraction;
 </script>
 
 <style lang="scss" scoped>
@@ -96,13 +98,11 @@ const attraction = data.value?.data.attributes.attraction;
 			justify-content: center;
 			text-align: center;
 			font-size: rem(38);
-			font-family: $font-family-bold;
+			font-family: $font-family-cinzel;
+			font-weight: 700;
 			padding-top: rem(40);
 			margin-bottom: rem(50);
 			text-transform: uppercase;
-			text-decoration: underline;
-			text-decoration-color: $color-primary;
-			text-underline-offset: rem(6);
 		}
 	}
 

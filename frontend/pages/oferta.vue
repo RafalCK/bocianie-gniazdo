@@ -10,28 +10,54 @@
 					:key="item.header">
 					<div
 						class="offers__row"
+						:id="item.anchor"
 						v-if="index % 2 === 0">
 						<div class="offers__text">
-							<span class="offers__text__header">{{ item.header }}</span>
-							<p class="offers__text__description">{{ item.content }}</p>
+							<span
+								class="offers__text__header"
+								href="#apartamenty"
+								>{{ item.header }}</span
+							>
+							<p class="offers__text__description">{{ item.description }}</p>
+							<div class="offers__button mt-2">
+								<NuxtLink
+									v-if="item.button"
+									:to="item.button.url">
+									<Button>
+										<span>{{ item.button.label }}</span></Button
+									>
+								</NuxtLink>
+							</div>
 						</div>
 						<div class="offers__image">
 							<NuxtImg
 								class="offers__image__image"
-								:src="`images/${item.image.data.attributes.name}`" />
+								provider="strapi"
+								:src="`${item.image.url}`" />
 						</div>
 					</div>
 					<div
 						v-else
-						class="offers__row">
+						class="offers__row"
+						:id="item.anchor">
 						<div class="offers__image">
 							<NuxtImg
 								class="offers__image__image"
-								:src="`images/${item.image.data.attributes.name}`" />
+								provider="strapi"
+								:src="`${item.image.url}`" />
 						</div>
 						<div class="offers__text">
 							<span class="offers__text__header">{{ item.header }}</span>
-							<p class="offers__text__description">{{ item.content }}</p>
+							<p class="offers__text__description">{{ item.description }}</p>
+							<div class="offers__button mt-2">
+								<NuxtLink
+									v-if="item.button"
+									:to="item.button.url">
+									<Button>
+										<span>{{ item.button.label }}</span></Button
+									>
+								</NuxtLink>
+							</div>
 						</div>
 					</div>
 				</template>
@@ -49,14 +75,14 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("offer", async () => {
 	try {
-		const response = await find("offer", { populate: "deep" });
+		const response = await find("offer", { pLevel: "5" });
 		return response;
 	} catch (err) {
 		return null;
 	}
 });
 
-const offer = data.value?.data.attributes.offer;
+const offer = data?.value?.data?.offer;
 </script>
 
 <style lang="scss" scoped>
@@ -88,13 +114,11 @@ const offer = data.value?.data.attributes.offer;
 			justify-content: center;
 			text-align: center;
 			font-size: rem(38);
-			font-family: $font-family-bold;
+			font-family: $font-family-cinzel;
+			font-weight: 700;
 			padding-top: rem(40);
 			margin-bottom: rem(50);
 			text-transform: uppercase;
-			text-decoration: underline;
-			text-decoration-color: $color-primary;
-			text-underline-offset: rem(6);
 			line-height: 46px;
 
 			&.cinzel {
@@ -119,7 +143,6 @@ const offer = data.value?.data.attributes.offer;
 		display: flex;
 		position: relative;
 		overflow: hidden;
-		min-height: 600px;
 		img {
 			width: 100%;
 			height: auto;
@@ -128,7 +151,13 @@ const offer = data.value?.data.attributes.offer;
 	}
 }
 
-@media (max-width: 965px) {
+@media (max-width: 520px) {
+	.offers__text__header {
+		font-size: rem(28);
+	}
+}
+
+@media (max-width: 1300px) {
 	.offers {
 		&__container {
 			margin: rem(80) rem(5);

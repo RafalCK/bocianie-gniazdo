@@ -5,7 +5,9 @@
 			header="Polityka Prywatności"></PageHero>
 		<div class="wrapper">
 			<div class="privacy-policy__container">
-				<div class="privacy-policy__content">Tu będzie polityka prywatnośći</div>
+				<div class="privacy-policy__content">
+					<div v-html="privacyPolicy.content"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -15,6 +17,19 @@
 definePageMeta({
 	layout: "page-layout",
 });
+
+const { find } = useStrapi();
+
+const { data } = await useAsyncData("privacy-policy", async () => {
+	try {
+		const response = await find("privacy-policy", { pLevel: "5" });
+		return response;
+	} catch (err) {
+		return null;
+	}
+});
+
+const privacyPolicy = data?.value?.data;
 </script>
 
 <style lang="scss" scoped>

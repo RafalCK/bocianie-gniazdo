@@ -34,12 +34,10 @@
 		display: flex;
 		justify-content: center;
 		font-size: rem(38);
-		font-family: $font-family-bold;
-		margin-bottom: rem(92);
+		font-family: $font-family-cinzel;
+		font-weight: 700;
+		margin-bottom: rem(62);
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(6);
 	}
 }
 </style>

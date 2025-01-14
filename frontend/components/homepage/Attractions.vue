@@ -13,7 +13,8 @@
 				<div class="attractions__item__image">
 					<div class="attractions__item__image__image">
 						<NuxtImg
-							:src="`images/${attraction.image.data.attributes.name}`"
+							provider="strapi"
+							:src="`${attraction.image.url}`"
 							height="455" />
 					</div>
 					<div class="attractions__item__button">
@@ -34,7 +35,7 @@ const attractions = inject("attractions");
 
 <style lang="scss" scoped>
 .attractions {
-	margin-top: rem(140);
+	margin-top: rem(50);
 	margin-bottom: rem(92);
 	position: relative;
 	padding: rem(30) 0 rem(50) 0;
@@ -57,13 +58,11 @@ const attractions = inject("attractions");
 		display: flex;
 		justify-content: center;
 		font-size: rem(38);
-		font-family: $font-family-bold;
+		font-family: $font-family-cinzel;
+		font-weight: 700;
 		padding-top: rem(40);
 		margin-bottom: rem(50);
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(6);
 	}
 
 	&__container {
@@ -78,7 +77,6 @@ const attractions = inject("attractions");
 		position: relative;
 		width: 20%;
 		&__image {
-			display: flex;
 			position: relative;
 			max-width: rem(400);
 			&__image {
@@ -127,7 +125,7 @@ const attractions = inject("attractions");
 				transform: scaleX(0);
 				transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 				transform-origin: center right;
-				background-color: $color-primary;
+				background-color: $color-secondary;
 			}
 		}
 
@@ -136,7 +134,7 @@ const attractions = inject("attractions");
 
 			&::after {
 				width: 0;
-				background: $color-primary;
+				background: $color-secondary;
 				height: 2px;
 				content: "";
 				position: absolute;
@@ -161,7 +159,7 @@ const attractions = inject("attractions");
 							color: $color-white;
 						}
 						&::before {
-							background: $color-primary;
+							background: $color-text;
 							transform: scaleX(1);
 							transform-origin: center left;
 						}
@@ -180,6 +178,7 @@ const attractions = inject("attractions");
 
 @media (max-width: 965px) {
 	.attractions {
+		margin-top: rem(10);
 		&__container {
 			flex-direction: column;
 		}

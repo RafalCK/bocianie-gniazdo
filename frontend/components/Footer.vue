@@ -1,17 +1,17 @@
 <template>
 	<footer class="footer">
 		<div class="footer__top">
-			<div class="footer__column">
+			<div class="footer__column footer__column__contact">
 				<span class="footer__header">Kontakt</span>
 				<div
 					class="footer__contact"
 					v-for="contact in contacts"
 					:key="contact.value">
 					<a
-						:href="contact.link"
+						:href="contact.url"
 						traget="_blank"
 						><i
-							:class="contact.icon"
+							:class="contact.iconame"
 							class="mr-2"></i
 						><span>{{ contact.value }}</span></a
 					>
@@ -55,14 +55,15 @@
 					target="_blank"
 					class="mt-3 mb-2">
 					<NuxtImg
-						:src="`images/${partner.logo.data.attributes.name}`"
+						provider="strapi"
+						:src="`${partner.logo.url}`"
 						height="23" />
 				</a>
 			</div>
 		</div>
 	</footer>
 	<div class="footer__bottom">
-		<span>Wszelkie prawa zastrzeżone © 2024 Bocianie Gniazdo</span>
+		<span class="text-center">Wszelkie prawa zastrzeżone © 2024 Bocianie Gniazdo</span>
 	</div>
 </template>
 
@@ -79,7 +80,7 @@ const partners = inject("partners");
 
 	width: 100%;
 	max-width: 100%;
-	padding: rem(60) 15%;
+	padding: rem(60) 10%;
 	margin-right: auto;
 	margin-left: auto;
 
@@ -110,7 +111,7 @@ const partners = inject("partners");
 				color: $color-text;
 
 				&:hover {
-					color: $color-primary;
+					color: $color-black;
 				}
 			}
 		}
@@ -130,7 +131,7 @@ const partners = inject("partners");
 			color: $color-text;
 
 			&:hover {
-				color: $color-primary;
+				color: $color-black;
 			}
 		}
 	}
@@ -141,7 +142,7 @@ const partners = inject("partners");
 		&__icon {
 			width: rem(32);
 			height: rem(32);
-			background-color: $color-primary;
+			background-color: $color-text;
 			border-radius: 50%;
 
 			display: flex;
@@ -154,17 +155,17 @@ const partners = inject("partners");
 		}
 
 		&:hover {
-			color: $color-primary;
+			color: $color-secondary;
 
 			.footer__item__icon {
 				background-color: $color-white;
-				color: $color-primary;
+				color: $color-text;
 			}
 		}
 	}
 }
 
-@media (max-width: 660px) {
+@media (max-width: 860px) {
 	.footer {
 		&__top {
 			flex-direction: column;

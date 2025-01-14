@@ -6,7 +6,6 @@
 		</div>
 		<AboutUs />
 		<Offer />
-		<Houses />
 		<Cta />
 		<Testimonials />
 		<Attractions />
@@ -15,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import Hero from "~/components/Hero.vue";
 import AboutUs from "~/components/homepage/AboutUs.vue";
 import Attractions from "~/components/homepage/Attractions.vue";
 import Houses from "~/components/homepage/Houses.vue";
@@ -27,32 +27,32 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("home-page", async () => {
 	try {
-		const response = await find("home-page", { populate: "deep" });
+		const response = await find("home-page", { pLevel: "5" });
 		return response;
 	} catch (err) {
 		return null;
 	}
 });
 
-const hero = data.value?.data.attributes.hero;
+const hero = data.value?.data.hero;
 provide("hero", hero);
 
-const about = data.value?.data.attributes.about;
+const about = data.value?.data.about;
 provide("about", about);
 
-const offers = data.value?.data.attributes.offers;
+const offers = data.value?.data.offers;
 provide("offers", offers);
 
-const houses = data.value?.data.attributes.houses;
+const houses = data.value?.data.houses;
 provide("houses", houses);
 
-const cta = data.value?.data.attributes.cta;
+const cta = data.value?.data.cta;
 provide("cta", cta);
 
-const testimonials = data.value?.data.attributes.testimonials;
+const testimonials = data.value?.data.testimonials;
 provide("testimonials", testimonials);
 
-const attractions = data.value?.data.attributes.attractions;
+const attractions = data.value?.data.attractions;
 provide("attractions", attractions);
 </script>
 

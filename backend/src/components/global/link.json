@@ -1,19 +1,16 @@
 {
-  "collectionName": "components_layout_links",
+  "collectionName": "components_global_links",
   "info": {
-    "displayName": "link",
-    "icon": "link",
-    "description": ""
+    "displayName": "Link",
+    "icon": "attachment"
   },
   "options": {},
   "attributes": {
     "label": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "url": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "blank": {
       "type": "boolean",

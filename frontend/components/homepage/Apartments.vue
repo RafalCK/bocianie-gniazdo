@@ -73,7 +73,7 @@
 			margin-bottom: rem(50);
 			text-transform: uppercase;
 			text-decoration: underline;
-			text-decoration-color: $color-primary;
+			text-decoration-color: $color-secondary;
 			text-underline-offset: rem(6);
 		}
 

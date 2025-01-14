@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_global_addresses",
+  "collectionName": "components_global_contacts",
   "info": {
     "displayName": "Contact",
-    "icon": "gate",
+    "icon": "priceTag",
     "description": ""
   },
   "options": {},
@@ -15,12 +15,12 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files"
       ]
     },
     "height": {
-      "type": "integer",
-      "default": 20
+      "type": "integer"
     },
     "url": {
       "type": "string"
@@ -30,6 +30,9 @@
       "default": false
     },
     "iconame": {
+      "type": "string"
+    },
+    "short": {
       "type": "string"
     }
   }

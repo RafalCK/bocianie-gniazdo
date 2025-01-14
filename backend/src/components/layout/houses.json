@@ -15,7 +15,9 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ]
     },
     "imageTwo": {
@@ -23,7 +25,9 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ]
     },
     "button": {

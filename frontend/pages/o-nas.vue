@@ -1,14 +1,14 @@
 <template>
 	<div class="about-us">
 		<PageHero
-			img="images/bocianie_gniazdo_led.jpg"
+			img="images/ofert.jpg"
 			header="O nas"></PageHero>
 		<div class="wrapper">
 			<div class="about-us__hosts">
 				<div class="about-us__hosts__item">
 					<div class="about-us__hosts__item__avatar">
 						<Avatar
-							:image="`images/${about.image.data.attributes.name}`"
+							:image="`http://localhost:1337${about.image.url}`"
 							size="xlarge"
 							shape="circle" />
 						<span class="about-us__hosts__item__name">Ela i Adrian</span>
@@ -31,14 +31,14 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("about-us", async () => {
 	try {
-		const response = await find("about-us", { populate: "deep" });
+		const response = await find("about-us", { pLevel: "5" });
 		return response;
 	} catch (err) {
 		return null;
 	}
 });
 
-const about = data.value?.data.attributes;
+const about = data?.value?.data;
 </script>
 
 <style lang="scss" scoped>
@@ -75,7 +75,7 @@ const about = data.value?.data.attributes;
 			margin-bottom: rem(50);
 			text-transform: uppercase;
 			text-decoration: underline;
-			text-decoration-color: $color-primary;
+			text-decoration-color: $color-secondary;
 			text-underline-offset: rem(6);
 		}
 	}

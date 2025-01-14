@@ -25,7 +25,7 @@ const items: Item[] = [
 	padding: 11px 40px 12px 15px;
 	position: relative;
 	align-items: center;
-	background-color: $color-primary;
+	background-color: $color-secondary;
 	padding: 10px;
 	text-align: center;
 	justify-content: center;

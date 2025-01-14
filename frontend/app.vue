@@ -7,11 +7,6 @@
 			</NuxtLayout>
 		</main>
 		<Footer />
-		<CookieControl locale="pl">
-			<template #bar>
-				<p>Ta strona korzysta z ciasteczek. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.</p>
-			</template>
-		</CookieControl>
 	</div>
 </template>
 
@@ -20,22 +15,22 @@ const { find } = useStrapi();
 
 const { data } = await useAsyncData("contact", async () => {
 	try {
-		return await find("contact", { populate: "deep" });
+		return await find("contact", { pLevel: "5" });
 	} catch (err) {
 		return null;
 	}
 });
 
-const contacts = data.value?.data.attributes.contact;
+const contacts = data.value?.data?.contact;
 provide("contacts", contacts);
 
-const socials = data.value?.data.attributes.socials;
+const socials = data.value?.data?.socials;
 provide("socials", socials);
 
-const links = data.value?.data.attributes.links;
+const links = data.value?.data?.links;
 provide("links", links);
 
-const partners = data.value?.data.attributes.partners;
+const partners = data.value?.data?.partners;
 provide("partners", partners);
 </script>
 

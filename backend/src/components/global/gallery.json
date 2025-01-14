@@ -2,7 +2,7 @@
   "collectionName": "components_global_galleries",
   "info": {
     "displayName": "Gallery",
-    "icon": "landscape"
+    "icon": "apps"
   },
   "options": {},
   "attributes": {
@@ -11,7 +11,9 @@
     },
     "images": {
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ],
       "type": "media",
       "multiple": true

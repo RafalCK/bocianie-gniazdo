@@ -4,7 +4,6 @@
 			<div
 				class="houses__description animation-duration-1000 animation-ease-in-out"
 				v-animateonscroll="{ enterClass: 'fadeinleft' }">
-				<span class="houses__description__header">Domki</span>
 				<p>{{ houses.content }}</p>
 				<div class="houses__description__button">
 					<NuxtLink :to="houses.button.url">
@@ -20,12 +19,14 @@
 				v-animateonscroll="{ enterClass: 'fadeinright' }">
 				<NuxtImg
 					class="houses__image-one"
-					:src="`images/${houses.imageOne.data.attributes.name}`"
-					height="505" />
+					height="505"
+					provider="strapi"
+					:src="`${houses.imageOne.url}`" />
 				<NuxtImg
 					class="houses__image-second"
-					:src="`images/${houses.imageTwo.data.attributes.name}`"
-					height="260" />
+					height="260"
+					provider="strapi"
+					:src="`${houses.imageTwo.url}`" />
 			</div>
 		</div>
 	</div>
@@ -67,12 +68,10 @@ const houses = inject("houses");
 			display: flex;
 			justify-content: center;
 			font-size: rem(38);
-			font-family: $font-family-bold;
+			font-family: $font-family-cinzel;
+			font-weight: 700;
 			margin-bottom: rem(50);
 			text-transform: uppercase;
-			text-decoration: underline;
-			text-decoration-color: $color-primary;
-			text-underline-offset: rem(6);
 		}
 
 		&__button {

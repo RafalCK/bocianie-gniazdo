@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offer",
     "pluralName": "offers",
-    "displayName": "Offer"
+    "displayName": "Offer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,7 +15,7 @@
     "offer": {
       "type": "component",
       "repeatable": true,
-      "component": "layout.about-us"
+      "component": "layout.offer"
     }
   }
 }

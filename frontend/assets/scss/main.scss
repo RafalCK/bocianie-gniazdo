@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: "Core Sans C 35", sans-serif;
 	font-size: rem(18);
@@ -16,6 +20,12 @@ a {
 	min-height: 100vh;
 }
 
+ul {
+	li {
+		line-height: 1.75;
+	}
+}
+
 .wrapper {
 	width: 100%;
 	max-width: 100%;
@@ -23,10 +33,6 @@ a {
 	padding-left: 15%;
 	margin-right: auto;
 	margin-left: auto;
-}
-
-.cookieControl__ControlButton {
-	left: 20px !important;
 }
 
 @media (max-width: 340px) {

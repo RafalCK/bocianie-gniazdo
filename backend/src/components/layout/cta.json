@@ -2,21 +2,21 @@
   "collectionName": "components_layout_ctas",
   "info": {
     "displayName": "Cta",
-    "icon": "cursor",
-    "description": ""
+    "icon": "magic"
   },
   "options": {},
   "attributes": {
     "content": {
-      "type": "text"
+      "type": "string"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images"
-      ]
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "button": {
       "type": "component",

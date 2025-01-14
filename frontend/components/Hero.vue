@@ -6,12 +6,12 @@
 			:numScroll="1"
 			:showIndicators="false"
 			:showNavigators="false"
-			:autoplayInterval="5000">
+			:autoplayInterval="none">
 			<template #item="slotProps">
 				<div class="hero__item">
 					<div
 						class="hero__image"
-						:style="`background-image: url(images/${slotProps.data.image.data.attributes.name})`"></div>
+						:style="`background-image: url(http://localhost:1337${slotProps.data.image.url})`"></div>
 					<div class="hero__text">
 						<span class="hero__header">
 							{{ slotProps.data.header }}
@@ -57,7 +57,7 @@ const hero = inject("hero");
 }
 
 .hero {
-	margin-top: rem(-161);
+	margin-top: rem(-174);
 	position: relative;
 	&__item {
 		position: relative;
@@ -85,15 +85,19 @@ const hero = inject("hero");
 		text-align: center;
 	}
 	&__header {
-		font-size: rem(60);
-		font-family: $font-family-raleway;
+		font-size: rem(52);
+		font-family: $font-family-cinzel;
+		font-weight: 600;
+		line-height: 46px;
 		color: $color-white;
+		text-transform: uppercase;
 	}
 	&__description {
-		font-size: rem(25);
-		font-family: $font-family-raleway;
+		font-size: rem(24);
+		font-family: $font-family-cinzel;
 		line-height: 26px;
 		color: $color-white;
+		text-transform: uppercase;
 	}
 	&__button {
 		margin-top: rem(15);
@@ -112,11 +116,13 @@ const hero = inject("hero");
 
 	.hero {
 		&__header {
-			margin-top: rem(100);
-			font-size: rem(38);
+			margin-top: rem(160);
+			font-size: rem(30);
+			line-height: 26px;
 		}
 		&__description {
-			font-size: rem(21);
+			font-size: rem(16);
+			line-height: 18px;
 		}
 	}
 }

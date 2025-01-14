@@ -2,8 +2,7 @@
   "collectionName": "components_layout_attractions",
   "info": {
     "displayName": "Attraction",
-    "icon": "crown",
-    "description": ""
+    "icon": "brush"
   },
   "options": {},
   "attributes": {
@@ -11,22 +10,17 @@
       "type": "string"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images"
-      ]
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "button": {
       "type": "component",
       "repeatable": false,
       "component": "global.link"
-    },
-    "offers": {
-      "type": "component",
-      "repeatable": true,
-      "component": "layout.offer"
     }
   }
 }

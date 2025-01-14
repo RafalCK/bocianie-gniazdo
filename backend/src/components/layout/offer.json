@@ -2,7 +2,7 @@
   "collectionName": "components_layout_offers",
   "info": {
     "displayName": "Offer",
-    "icon": "shoppingCart",
+    "icon": "priceTag",
     "description": ""
   },
   "options": {},
@@ -12,7 +12,9 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ]
     },
     "header": {
@@ -23,6 +25,14 @@
     },
     "link": {
       "type": "string"
+    },
+    "anchor": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.link"
     }
   }
 }

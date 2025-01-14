@@ -41,6 +41,7 @@ const items = [
 		color: $color-white;
 		text-transform: uppercase;
 		font-family: $font-family-regular;
+		line-height: 36px;
 
 		&:hover {
 			&:after {
@@ -50,11 +51,11 @@ const items = [
 
 		&:after {
 			width: 0;
-			background: $color-primary;
+			background: $color-secondary;
 			height: 2px;
 			content: "";
 			position: absolute;
-			margin-top: rem(20);
+			margin-top: rem(36);
 			display: block;
 			transition: all 0.2s ease-in-out;
 		}
@@ -83,7 +84,7 @@ const items = [
 			transition: 0.3s all ease-in-out;
 
 			&:hover {
-				color: $color-primary;
+				color: $color-secondary;
 				background: $color-white;
 			}
 

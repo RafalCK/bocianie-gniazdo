@@ -4,8 +4,7 @@
   "info": {
     "singularName": "contact",
     "pluralName": "contacts",
-    "displayName": "contact",
-    "description": ""
+    "displayName": "contact"
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +19,7 @@
     "contact": {
       "type": "component",
       "repeatable": true,
-      "component": "global.address"
+      "component": "global.contact"
     },
     "links": {
       "type": "component",

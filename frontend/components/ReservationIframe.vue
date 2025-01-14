@@ -4,7 +4,8 @@
 		class="hero__reservation"
 		id="ra-reservation-form-v2-05b4d33f48fb8d8f53d84c5fc84f588d"
 		style="width: 100%; height: 100px; border: none; padding: 0"
-		src="https://roomadmin.pl/widget/reservation-v2/start?fh=bab2be9f63ca5163289900a1f2560584e7040979&style=%7B%22color_accent%22%3A%22%2314b8a6%22%2C%22color_bg%22%3A%22transparent%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3Atrue%7D&filter=%7B%7D&lang=pl"></iframe>
+		src="https://roomadmin.pl/widget/reservation-v2/start?fh=bab2be9f63ca5163289900a1f2560584e7040979&style=%7B%22color_accent%22%3A%22%234b5563%22%2C%22color_bg%22%3A%22transparent%22%2C%22color_panel_header%22%3A%22%transparetn%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3Atrue%7D&filter=%7B%7D&lang=pl
+"></iframe>
 </template>
 
 <script setup lang="ts">

@@ -2,8 +2,7 @@
   "collectionName": "components_global_partners",
   "info": {
     "displayName": "Partners",
-    "icon": "handHeart",
-    "description": ""
+    "icon": "oneToMany"
   },
   "options": {},
   "attributes": {
@@ -11,15 +10,13 @@
       "type": "string"
     },
     "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images"
-      ]
-    },
-    "name": {
-      "type": "string"
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

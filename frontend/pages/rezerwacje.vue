@@ -1,7 +1,7 @@
 <template>
 	<div class="reservation">
 		<PageHero
-			img="images/bocianie_gniazdo_led.jpg"
+			img="images/ofert.jpg"
 			header="Rezerwacja"></PageHero>
 		<div class="wrapper">
 			<div class="reservation__container">

@@ -28,7 +28,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .page-hero {
-	margin-top: rem(-161);
+	margin-top: rem(-174);
 	position: relative;
 	height: rem(400);
 
@@ -62,11 +62,9 @@ const props = defineProps({
 		justify-content: center;
 		color: $color-white;
 		font-size: rem(40);
-		font-family: $font-family-bold;
+		font-family: $font-family-cinzel;
+		font-weight: 700;
 		text-transform: uppercase;
-		text-decoration: underline;
-		text-decoration-color: $color-primary;
-		text-underline-offset: rem(6);
 	}
 }
 </style>

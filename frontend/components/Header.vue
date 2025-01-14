@@ -4,12 +4,12 @@
 			<div class="header__info">
 				<NuxtLink
 					v-for="contact in contacts"
-					:key="contact.value"
+					:key="contact.short"
 					:to="contact.url"
 					:target="contact.blank ? '_blank' : null"
 					class="header__info__item">
 					<div class="header__info__item__icon"><span :class="contact.iconame"></span></div>
-					<span>{{ contact.value }}</span>
+					<span>{{ contact.short }}</span>
 				</NuxtLink>
 			</div>
 			<div class="header__social-media">
@@ -29,7 +29,7 @@
 				<NuxtLink to="/">
 					<NuxtImg
 						src="images/bocianie_gniazdo_logo_white.png"
-						height="65" />
+						class="header__logo__logo" />
 				</NuxtLink>
 			</div>
 			<MenuMobile class="header__menu-mobile" />
@@ -83,10 +83,11 @@ const socials = inject("socials");
 			display: inline-flex;
 			align-items: center;
 			color: $color-white;
+
 			&__icon {
 				width: rem(32);
 				height: rem(32);
-				background-color: $color-primary;
+				background-color: $color-secondary;
 				border-radius: 50%;
 
 				display: flex;
@@ -94,16 +95,16 @@ const socials = inject("socials");
 				align-items: center;
 
 				margin: rem(8);
-				color: $color-white;
+				color: $color-black;
 				font-weight: $font-weight-bold;
 			}
 
 			&:hover {
-				color: $color-primary;
+				color: $color-secondary;
 
 				.header__info__item__icon {
 					background-color: $color-white;
-					color: $color-primary;
+					color: $color-text;
 				}
 			}
 		}
@@ -120,10 +121,12 @@ const socials = inject("socials");
 	}
 
 	&__logo {
-		width: rem(180);
-
 		display: flex;
 		justify-content: center;
+
+		&__logo {
+			height: rem(80);
+		}
 	}
 
 	&__reservation {
@@ -142,13 +145,13 @@ const socials = inject("socials");
 			text-transform: uppercase;
 
 			color: $color-white;
-			border: 2px solid $color-primary;
+			border: 2px solid $color-secondary;
 
 			transition: 0.3s all ease-in-out;
 
 			&:hover {
-				color: $color-white;
-				background: $color-primary;
+				color: $color-text;
+				background: $color-secondary;
 			}
 
 			&__icon {
@@ -162,11 +165,10 @@ const socials = inject("socials");
 
 @media (max-width: 700px) {
 	.header {
-		&__logo {
-			margin-left: rem(10);
-		}
+		margin: 0 !important;
 		&__info {
 			&__item {
+				font-size: rem(14);
 				&__email {
 					display: none;
 				}
@@ -174,6 +176,9 @@ const socials = inject("socials");
 		}
 		&__top {
 			padding: 0;
+		}
+		&__bottom {
+			justify-content: space-between;
 		}
 		&__social-media {
 			display: none;
@@ -184,6 +189,17 @@ const socials = inject("socials");
 @media (max-width: 1100px) {
 	.header {
 		margin: 0 rem(12);
+
+		&__info {
+			&__item {
+				&:nth-child(3) {
+					display: none;
+				}
+				&:nth-child(4) {
+					display: none;
+				}
+			}
+		}
 		&__menu {
 			display: none;
 		}
@@ -192,6 +208,10 @@ const socials = inject("socials");
 		}
 
 		&__reservation {
+			display: none;
+		}
+
+		&__social-media {
 			display: none;
 		}
 	}

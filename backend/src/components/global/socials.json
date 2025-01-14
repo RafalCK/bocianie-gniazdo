@@ -2,8 +2,7 @@
   "collectionName": "components_global_socials",
   "info": {
     "displayName": "Socials",
-    "icon": "manyToOne",
-    "description": ""
+    "icon": "manyToOne"
   },
   "options": {},
   "attributes": {

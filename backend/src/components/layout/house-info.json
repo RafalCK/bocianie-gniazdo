@@ -2,8 +2,7 @@
   "collectionName": "components_layout_house_infos",
   "info": {
     "displayName": "HouseInfo",
-    "icon": "house",
-    "description": ""
+    "icon": "bell"
   },
   "options": {},
   "attributes": {
@@ -13,7 +12,7 @@
     "items": {
       "type": "component",
       "repeatable": true,
-      "component": "global.address"
+      "component": "global.contact"
     }
   }
 }

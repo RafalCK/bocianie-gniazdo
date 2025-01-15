@@ -30,11 +30,32 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	modules: ["@nuxtjs/strapi", "@nuxt/image", "nuxt-primevue"],
+	modules: [
+		"@nuxtjs/strapi",
+		"@nuxt/image",
+		"nuxt-primevue",
+		[
+			"nuxt-mail",
+			{
+				message: {
+					from: process.env.NUXT_MAIL_SMTP_USER,
+					to: process.env.NUXT_MAIL_SMTP_USER,
+				},
+				smtp: {
+					host: process.env.NUXT_MAIL_SMTP_HOST,
+					port: process.env.NUXT_MAIL_SMTP_PORT,
+					auth: {
+						user: process.env.NUXT_MAIL_SMTP_USER,
+						pass: process.env.NUXT_MAIL_SMTP_PASS,
+					},
+				},
+			},
+		],
+	],
 	css: ["primevue/resources/themes/lara-light-teal/theme.css", "~/assets/scss/main.scss", "~/assets/scss/primevue.scss", "primeicons/primeicons.css"],
 	primevue: {
 		components: {
-			include: ["Button", "Menubar", "InputText", "Carousel", "Avatar", "Textarea", "Checkbox", "FloatLabel", "Galleria"],
+			include: ["Button", "Menubar", "InputText", "Carousel", "Avatar", "Textarea", "Checkbox", "FloatLabel", "Galleria", "Message"],
 		},
 		directives: {
 			include: ["AnimateOnScroll"],

@@ -15,7 +15,7 @@
 									<InputText
 										id="username"
 										v-model="username" />
-									<label for="username">Imię</label>
+									<label for="username">Imię i nazwisko</label>
 								</FloatLabel>
 								<FloatLabel>
 									<InputText
@@ -56,10 +56,27 @@
 									<Button
 										iconPos="right"
 										label="Wyślij"
+										@click="sendEmail"
 										:disabled="!consent"
 										icon="pi pi-send" />
 								</div>
 							</form>
+							<Message
+								v-if="showAlert && alertStatus === 'success'"
+								:closable="false"
+								variant="simple"
+								severity="success"
+								class="mb-2"
+								>Wiadomość została wysłana</Message
+							>
+							<Message
+								v-if="showAlert && alertStatus === 'error'"
+								:closable="false"
+								variant="simple"
+								severity="error"
+								class="mb-2"
+								>Niestety nie udało się wysłać wiadomośći. Spórbuj jeszcze raz.</Message
+							>
 						</div>
 					</div>
 				</div>
@@ -96,6 +113,39 @@ const phone = ref("");
 const email = ref("");
 const message = ref("");
 const consent = ref(false);
+const showAlert = ref(false);
+const alertStatus = ref("");
+
+const mail = useMail();
+
+const sendEmail = async () => {
+	try {
+		await mail.send({
+			subject: "Kontakt ze strony internetowej",
+			html: `
+				<p><strong>Imię i nazwisko:</strong> ${username.value}</p>
+				<p><strong>Telefon:</strong> ${phone.value}</p>
+				<p><strong>Email:</strong> ${email.value}</p>
+				<p><strong>Wiadomość:</strong><br>${message.value}</p>
+			`,
+		});
+		alertStatus.value = "success";
+	} catch (error) {
+		alertStatus.value = "error";
+	} finally {
+		username.value = "";
+		phone.value = "";
+		email.value = "";
+		message.value = "";
+		consent.value = false;
+
+		showAlert.value = true;
+		setTimeout(() => {
+			showAlert.value = false;
+			alertStatus.value = "";
+		}, 5000);
+	}
+};
 </script>
 
 <style lang="scss" scoped>

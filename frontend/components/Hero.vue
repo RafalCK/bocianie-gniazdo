@@ -6,7 +6,7 @@
 			:numScroll="1"
 			:showIndicators="false"
 			:showNavigators="false"
-			:autoplayInterval="none">
+			:autoplayInterval="5000">
 			<template #item="slotProps">
 				<div class="hero__item">
 					<div
